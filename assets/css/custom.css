@@ -1,0 +1,22 @@
+.d-flex {
+    display:flex;
+}
+
+.d-flex>div {
+    float: none;
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+.sidebar ul.nav li.parent ul li a {
+    padding-left: 43px;
+}
+
+.form #photo {
+    border: 1px solid #d0d0d0;
+    padding: 4px;
+}
