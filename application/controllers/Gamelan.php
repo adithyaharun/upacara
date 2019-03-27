@@ -81,4 +81,13 @@ class Gamelan extends CI_Controller
         $this->gamelan->where(['id_gamelan' => $id])->delete();
         redirect(base_url('gamelan'));
     }
+
+    public function json()
+    {
+        $data = $this->gamelan->get();
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($data));
+    }
 }

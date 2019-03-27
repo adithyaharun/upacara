@@ -55,4 +55,13 @@ class Kidung extends CI_Controller
         $this->kidung->where(['id_kidung' => $id])->delete();
         redirect(base_url('kidung'));
     }
+
+    public function json()
+    {
+        $data = $this->kidung->get();
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($data));
+    }
 }

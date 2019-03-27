@@ -83,4 +83,13 @@ class Tari extends CI_Controller
         $this->tari->where(['id_tari' => $id])->delete();
         redirect(base_url('tari'));
     }
+
+    public function json()
+    {
+        $data = $this->tari->get();
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($data));
+    }
 }

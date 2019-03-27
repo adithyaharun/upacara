@@ -44,7 +44,7 @@
                                     <?= $value->id_upacara ?>
                                 </td>
                                 <td>
-                                    <?= $value->nama_upacara ?>
+                                    <a href="<?= base_url('/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
                                 </td>
                                 <td>
                                     <?= ucfirst($value->tingkatan_upacara ?: '-') ?>

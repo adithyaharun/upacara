@@ -47,6 +47,38 @@ class MY_Model extends CI_Model
     }
 
     /**
+     * Select.
+     */
+    public function select($column = '*')
+    {
+        if (is_array($column)) {
+            $column = implode(",", $column);
+        }
+
+        $this->db->select($column);
+
+        return $this;
+    }
+
+    /**
+     * DB.
+     */
+    public function db()
+    {
+        return $this->db;
+    }
+
+    /**
+     * Join.
+     */
+    public function join($table, $column1, $operator, $column2, $type = "")
+    {
+        $this->db->join($table, "{$column1} {$operator} {$column2}", $type);
+
+        return $this;
+    }
+
+    /**
      * Limit.
      */
     public function limit($number)

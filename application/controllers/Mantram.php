@@ -69,4 +69,13 @@ class Mantram extends CI_Controller
         $this->mantram->where(['id_mantram' => $id])->delete();
         redirect(base_url('mantram'));
     }
+
+    public function json()
+    {
+        $data = $this->mantram->get();
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($data));
+    }
 }
