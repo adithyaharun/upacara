@@ -21,7 +21,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-2">
-                                <a href="<?= base_url('upacara/create?yadnya=' . $yadnya->id_yadnya); ?>" class="btn btn-warning">
+                                <a href="<?= base_url('admin/upacara/create?yadnya=' . $yadnya->id_yadnya); ?>" class="btn btn-warning">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
@@ -44,14 +44,14 @@
                                     <?= $value->id_upacara ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
+                                    <a href="<?= base_url('admin/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
                                 </td>
                                 <td>
                                     <?= ucfirst($value->tingkatan_upacara ?: '-') ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('upacara/edit/' . $value->id_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('upacara/delete/' . $value->id_upacara); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    <a href="<?= base_url('admin/upacara/edit/' . $value->id_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                    <a href="<?= base_url('admin/upacara/delete/' . $value->id_upacara); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-2">
-                                <a href="<?= base_url('kidung/create'); ?>" class="btn btn-warning">
+                                <a href="<?= base_url('admin/kidung/create'); ?>" class="btn btn-warning">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
@@ -45,8 +45,8 @@
                                     <?= $value->nama_kidung ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('kidung/edit/' . $value->id_kidung); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('kidung/delete/' . $value->id_kidung); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    <a href="<?= base_url('admin/kidung/edit/' . $value->id_kidung); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                    <a href="<?= base_url('admin/kidung/delete/' . $value->id_kidung); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

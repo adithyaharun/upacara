@@ -13,23 +13,45 @@ class Upacara extends CI_Controller
         $this->load->model('kidung_model', 'kidung');
     }
 
-    public function index()
+    public function index($id = null)
     {
         $values = [];
+        $yadnya = 1;
 
-        if ($this->input->get('yadnya') !== null) {
-            $values['yadnya'] = $this->yadnya->find($this->input->get('yadnya'), 'id_yadnya');
+        if ($id !== null) {
+            switch ($id) {
+                case 'dewa_yadnya':
+                    $yadnya = 1;
+                    break;
+
+                case 'pitra_yadnya':
+                    $yadnya = 2;
+                    break;
+
+                case 'manusa_yadnya':
+                    $yadnya = 3;
+                    break;
+
+                case 'rsi_yadnya':
+                    $yadnya = 4;
+                    break;
+
+                case 'bhuta_yadnya':
+                    $yadnya = 5;
+                    break;
+
+                default:
+                    $yadnya = 1;
+                    break;
+            }
+
+            $values['yadnya'] = $this->yadnya->find($yadnya, 'id_yadnya');
             $values['data'] = $this->upacara
-                ->where('id_yadnya', $this->input->get('yadnya'))
+                ->where('id_yadnya', $yadnya)
                 ->get();
         }
 
-        $this->load->view('admin/upacara/index', $values);
-    }
-
-    public function create()
-    {
-        $this->load->view('admin/upacara/form');
+        $this->load->view('upacara/index', $values);
     }
 
     public function show($id)
@@ -60,86 +82,8 @@ class Upacara extends CI_Controller
             ])
             ->get();
 
-        $this->load->view('admin/upacara/detail', [
+        $this->load->view('upacara/detail', [
             'data' => $data
         ]);
-    }
-
-    public function store()
-    {
-        $image = null;
-        $config['encrypt_name']         = true;
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('photo')) {
-            $image = $this->upload->data()['file_name'];
-        }
-
-        $this->upacara->create([
-            'nama_upacara' => $this->input->post('nama_upacara'),
-            'deskripsi' => $this->input->post('deskripsi'),
-            'tingkatan_upacara' => $this->input->post('tingkatan_upacara'),
-            'id_yadnya' => $this->input->post('id_yadnya'),
-            'gambar' => $image,
-            'konten' => $this->input->post('konten'),
-        ]);
-
-        redirect(base_url('upacara?yadnya=' . $this->input->post('id_yadnya')));
-    }
-
-    public function update($id)
-    {
-        $data = $this->upacara->find($id, 'id_upacara');
-        $image = $data->gambar;
-
-        $this->load->library('upload', [
-            'encrypt_name' => true,
-            'upload_path' => './uploads/',
-            'allowed_types' => 'gif|jpg|png|jpeg'
-        ]);
-
-        if ($this->upload->do_upload('photo')) {
-            $image = $this->upload->data()['file_name'];
-        }
-
-        $this->upacara->update($id, [
-            'nama_upacara' => $this->input->post('nama_upacara'),
-            'deskripsi' => $this->input->post('deskripsi'),
-            'tingkatan_upacara' => $this->input->post('tingkatan_upacara'),
-            'id_yadnya' => $this->input->post('id_yadnya'),
-            'gambar' => $image,
-            'konten' => $this->input->post('konten'),
-        ], 'id_upacara');
-
-        redirect(base_url('upacara?yadnya=' . $data->id_yadnya));
-    }
-
-    public function edit($id)
-    {
-        $this->load->view('admin/upacara/form', [
-            'data' => $this->upacara->find($id, 'id_upacara')
-        ]);
-    }
-
-    public function delete($id)
-    {
-        $data = $this->upacara->find($id, 'id_upacara');
-        $this->upacara->where(['id_upacara' => $id])->delete();
-
-        redirect(base_url('upacara?yadnya=' . $data->id_yadnya));
-    }
-
-    public function add_detail($id)
-    {
-        $this->upacara_detail->create([
-            'type' => $this->input->post('type'),
-            'id_item' => $this->input->post('detail'),
-            'id_upacara' => $id,
-        ]);
-
-        redirect(base_url('upacara/show/' . $id));
     }
 }

@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="<?= base_url('gamelan'); ?>" class="btn btn-default">Batal</a>
+                    <a href="<?= base_url('admin/gamelan'); ?>" class="btn btn-default">Batal</a>
                     <button class="btn btn-primary">Simpan</button>
                 </div>
             </form>

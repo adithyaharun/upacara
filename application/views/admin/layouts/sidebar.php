@@ -27,42 +27,42 @@
             </a>
             <ul class="children collapse" id="sub-item-1">
                 <li>
-                    <a href="<?= base_url('upacara?yadnya=1') ?>">Dewa Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=1') ?>">Dewa Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('upacara?yadnya=2') ?>">Pitra Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=2') ?>">Pitra Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('upacara?yadnya=3') ?>">Manusa Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=3') ?>">Manusa Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('upacara?yadnya=4') ?>">Rsi Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=4') ?>">Rsi Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('upacara?yadnya=5') ?>">Bhuta Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=5') ?>">Bhuta Yadnya</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="<?= base_url('tari') ?>">
+            <a href="<?= base_url('admin/tari') ?>">
                 <i style="width: 24px" class="fa fa-cubes"></i>
                 <span>Tari</span>
             </a>
         </li>
         <li>
-            <a href="<?= base_url('gamelan') ?>">
+            <a href="<?= base_url('admin/gamelan') ?>">
                 <i style="width: 24px" class="fa fa-database"></i>
                 <span>Gamelan</span>
             </a>
         </li>
         <li>
-            <a href="<?= base_url('mantram') ?>">
+            <a href="<?= base_url('admin/mantram') ?>">
                 <i style="width: 24px" class="fa fa-archive"></i>
                 <span>Mantra</span>
             </a>
         </li>
         <li>
-            <a href="<?= base_url('kidung') ?>">
+            <a href="<?= base_url('admin/kidung') ?>">
                 <i style="width: 24px" class="fa fa-music"></i>
                 <span>Kidung</span>
             </a>
@@ -71,13 +71,13 @@
             <hr />
         </li>
         <li>
-            <a href="<?= base_url('user') ?>">
+            <a href="<?= base_url('admin/user') ?>">
                 <i style="width: 24px" class="fa fa-users"></i>
                 <span>Operator</span>
             </a>
         </li>
         <li>
-            <a href="<?= base_url('logout') ?>">
+            <a href="<?= base_url('admin/logout') ?>">
                 <i style="width: 24px" class="fa fa-power-off"></i>
                 <span>Keluar</span>
             </a>

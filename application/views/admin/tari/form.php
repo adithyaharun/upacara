@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="<?= base_url('tari'); ?>" class="btn btn-default">Batal</a>
+                    <a href="<?= base_url('admin/tari'); ?>" class="btn btn-default">Batal</a>
                     <button class="btn btn-primary">Simpan</button>
                 </div>
             </form>

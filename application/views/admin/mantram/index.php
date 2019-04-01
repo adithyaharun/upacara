@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-2">
-                                <a href="<?= base_url('mantram/create'); ?>" class="btn btn-warning">
+                                <a href="<?= base_url('admin/mantram/create'); ?>" class="btn btn-warning">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
@@ -48,8 +48,8 @@
                                     <?= ucfirst($value->kategori ?: '-') ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('mantram/edit/' . $value->id_mantram); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('mantram/delete/' . $value->id_mantram); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    <a href="<?= base_url('admin/mantram/edit/' . $value->id_mantram); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                    <a href="<?= base_url('admin/mantram/delete/' . $value->id_mantram); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

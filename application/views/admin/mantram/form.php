@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="<?= base_url('mantram'); ?>" class="btn btn-default">Batal</a>
+                    <a href="<?= base_url('admin/mantram'); ?>" class="btn btn-default">Batal</a>
                     <button class="btn btn-primary">Simpan</button>
                 </div>
             </form>

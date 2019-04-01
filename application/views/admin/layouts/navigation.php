@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= config_item('base_url'); ?>"><span>E-</span>Upacara</a>
+            <a class="navbar-brand" href="<?= config_item('base_url'); ?>admin"><span>E-</span>Upacara</a>
         </div>
     </div><!-- /.container-fluid -->
 </nav> 

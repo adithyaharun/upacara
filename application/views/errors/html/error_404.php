@@ -24,17 +24,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="<?= config_item('base_url'); ?>"><span>E-</span>Upacara</a>
-            </div>
-        </div><!-- /.container-fluid -->
-    </nav>
-
     <div class="text-center" style="padding-top: 5rem">
         <h1>Halaman tidak ditemukan</h1>
-        <p><a href="#" onclick="return history.go(-1)">Klik disini</a> untuk kembali ke Dasbor anda.</p>
+        <p><a href="#" onclick="return history.go(-1)">Klik disini</a> untuk kembali ke halaman sebelumnya.</p>
     </div>
 </body>
 
