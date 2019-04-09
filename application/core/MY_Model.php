@@ -31,6 +31,15 @@ class MY_Model extends CI_Model
     }
 
     /**
+     * first.
+     */
+    public function first()
+    {
+        $data = $this->db->get($this->table);
+        return $data->row();
+    }
+
+    /**
      * Where.
      */
     public function where($key, $value = '')

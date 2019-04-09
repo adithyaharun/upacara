@@ -28,7 +28,7 @@ class Kidung extends CI_Controller
             'konten' => $this->input->post('konten'),
         ]);
 
-        redirect(base_url('kidung'));
+        redirect(base_url('admin/kidung'));
     }
 
     public function update($id)
@@ -40,7 +40,7 @@ class Kidung extends CI_Controller
             'konten' => $this->input->post('konten'),
         ], 'id_kidung');
 
-        redirect(base_url('kidung'));
+        redirect(base_url('admin/kidung'));
     }
 
     public function edit($id)
@@ -53,7 +53,7 @@ class Kidung extends CI_Controller
     public function delete($id)
     {
         $this->kidung->where(['id_kidung' => $id])->delete();
-        redirect(base_url('kidung'));
+        redirect(base_url('admin/kidung'));
     }
 
     public function json()

@@ -40,7 +40,7 @@ class Gamelan extends CI_Controller
             'konten' => $this->input->post('konten'),
         ]);
 
-        redirect(base_url('gamelan'));
+        redirect(base_url('admin/gamelan'));
     }
 
     public function update($id)
@@ -66,7 +66,7 @@ class Gamelan extends CI_Controller
             'konten' => $this->input->post('konten'),
         ], 'id_gamelan');
 
-        redirect(base_url('gamelan'));
+        redirect(base_url('admin/gamelan'));
     }
 
     public function edit($id)
@@ -79,7 +79,7 @@ class Gamelan extends CI_Controller
     public function delete($id)
     {
         $this->gamelan->where(['id_gamelan' => $id])->delete();
-        redirect(base_url('gamelan'));
+        redirect(base_url('admin/gamelan'));
     }
 
     public function json()

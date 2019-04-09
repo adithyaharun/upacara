@@ -68,6 +68,12 @@
             </a>
         </li>
         <li>
+            <a href="<?= base_url('admin/prosesi') ?>">
+                <i style="width: 24px" class="fa fa-refresh"></i>
+                <span>Prosesi</span>
+            </a>
+        </li>
+        <li>
             <hr />
         </li>
         <li>
@@ -83,4 +89,4 @@
             </a>
         </li>
     </ul>
-</div> 
+</div>

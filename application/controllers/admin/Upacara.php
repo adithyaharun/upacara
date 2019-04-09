@@ -34,9 +34,15 @@ class Upacara extends CI_Controller
 
     public function show($id)
     {
-        $data = $this->upacara->find($id, 'id_upacara');
-        $data->prosesi = $this->prosesi->select('tb_prosesi_upacara.*')
-            ->where(['id_upacara' => $id])
+        $data = $this->upacara->select('tb_upacara.*, tb_yadnya.nama_yadnya')
+            ->join('tb_yadnya', 'tb_upacara.id_yadnya', '=', 'tb_yadnya.id_yadnya')
+            ->first();
+        $data->prosesi = $this->upacara_detail->select('tb_prosesi_upacara.*, tb_upacara_detail.kategori')
+            ->join('tb_prosesi_upacara', 'tb_upacara_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')
+            ->where([
+                'tb_upacara_detail.id_upacara' => $id,
+                'type' => 'prosesi'
+            ])
             ->get();
         $data->tari = $this->upacara_detail->select('tb_tari.*')
             ->join('tb_tari', 'tb_upacara_detail.id_item', '=', 'tb_tari.id_tari')
@@ -81,13 +87,11 @@ class Upacara extends CI_Controller
         $this->upacara->create([
             'nama_upacara' => $this->input->post('nama_upacara'),
             'deskripsi' => $this->input->post('deskripsi'),
-            'tingkatan_upacara' => $this->input->post('tingkatan_upacara'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'gambar' => $image,
-            'konten' => $this->input->post('konten'),
         ]);
 
-        redirect(base_url('upacara?yadnya=' . $this->input->post('id_yadnya')));
+        redirect(base_url('admin/upacara?yadnya=' . $this->input->post('id_yadnya')));
     }
 
     public function update($id)
@@ -108,13 +112,11 @@ class Upacara extends CI_Controller
         $this->upacara->update($id, [
             'nama_upacara' => $this->input->post('nama_upacara'),
             'deskripsi' => $this->input->post('deskripsi'),
-            'tingkatan_upacara' => $this->input->post('tingkatan_upacara'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'gambar' => $image,
-            'konten' => $this->input->post('konten'),
         ], 'id_upacara');
 
-        redirect(base_url('upacara?yadnya=' . $data->id_yadnya));
+        redirect(base_url('admin/upacara?yadnya=' . $data->id_yadnya));
     }
 
     public function edit($id)
@@ -129,7 +131,7 @@ class Upacara extends CI_Controller
         $data = $this->upacara->find($id, 'id_upacara');
         $this->upacara->where(['id_upacara' => $id])->delete();
 
-        redirect(base_url('upacara?yadnya=' . $data->id_yadnya));
+        redirect(base_url('admin/upacara?yadnya=' . $data->id_yadnya));
     }
 
     public function add_detail($id)
@@ -137,9 +139,10 @@ class Upacara extends CI_Controller
         $this->upacara_detail->create([
             'type' => $this->input->post('type'),
             'id_item' => $this->input->post('detail'),
+            'kategori' => $this->input->post('kategori'),
             'id_upacara' => $id,
         ]);
 
-        redirect(base_url('upacara/show/' . $id));
+        redirect(base_url('admin/upacara/show/' . $id));
     }
 }

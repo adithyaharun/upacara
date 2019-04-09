@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <form class="form" action="<?= base_url('gamelan/' . (isset($data) ? 'update/' . $data->id_gamelan : 'store')) ?>" method="POST" enctype="multipart/form-data">
+            <form class="form" action="<?= base_url('admin/gamelan/' . (isset($data) ? 'update/' . $data->id_gamelan : 'store')) ?>" method="POST" enctype="multipart/form-data">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -80,4 +80,4 @@
     </script>
 </body>
 
-</html> 
+</html>

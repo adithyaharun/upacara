@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <form class="form" action="<?= base_url('kidung/' . (isset($data) ? 'update/' . $data->id_kidung : 'store')) ?>" method="POST" enctype="multipart/form-data">
+            <form class="form" action="<?= base_url('admin/kidung/' . (isset($data) ? 'update/' . $data->id_kidung : 'store')) ?>" method="POST" enctype="multipart/form-data">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -38,7 +38,7 @@
                     <hr>
                     <div class="form-group">
                         <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
+                        <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">
@@ -69,4 +69,4 @@
     </script>
 </body>
 
-</html> 
+</html>

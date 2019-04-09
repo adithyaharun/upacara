@@ -28,7 +28,7 @@ class Mantram extends CI_Controller
             'konten' => $this->input->post('konten'),
         ]);
 
-        redirect(base_url('mantram'));
+        redirect(base_url('admin/mantram'));
     }
 
     public function update($id)
@@ -54,7 +54,7 @@ class Mantram extends CI_Controller
             'konten' => $this->input->post('konten'),
         ], 'id_mantram');
 
-        redirect(base_url('mantram'));
+        redirect(base_url('admin/mantram'));
     }
 
     public function edit($id)
@@ -67,7 +67,7 @@ class Mantram extends CI_Controller
     public function delete($id)
     {
         $this->mantram->where(['id_mantram' => $id])->delete();
-        redirect(base_url('mantram'));
+        redirect(base_url('admin/mantram'));
     }
 
     public function json()

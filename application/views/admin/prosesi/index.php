@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('admin/layouts/head', ['title' => 'Mantram']); ?>
+<?php $this->load->view('admin/layouts/head', ['title' => 'Prosesi Upacara']); ?>
 
 <body>
     <?php $this->load->view('admin/layouts/navigation'); ?>
@@ -9,7 +9,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Mantram</h1>
+                <h1 class="page-header">Prosesi Upacara</h1>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-2">
-                                <a href="<?= base_url('admin/mantram/create'); ?>" class="btn btn-warning">
+                                <a href="<?= base_url('admin/prosesi/create'); ?>" class="btn btn-warning">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
@@ -30,8 +30,8 @@
                         <thead>
                             <tr>
                                 <th width="80">ID</th>
-                                <th>Nama Mantram</th>
-                                <th width="150">Kategori</th>
+                                <th>Deskripsi</th>
+                                <th>Yadnya</th>
                                 <th width="250"></th>
                             </tr>
                         </thead>
@@ -39,17 +39,17 @@
                             <?php foreach ($data as $index => $value) : ?>
                                 <tr>
                                     <td>
-                                        <?= $value->id_mantram ?>
+                                        <?= $value->id_prosesi_upacara ?>
                                     </td>
                                     <td>
-                                        <?= $value->nama_mantram ?>
+                                        <?= $value->prosesi_upacara ?>
                                     </td>
                                     <td>
-                                        <?= ucfirst($value->kategori ?: '-') ?>
+                                        <?= $value->nama_yadnya ?>
                                     </td>
                                     <td>
-                                        <a href="<?= base_url('admin/mantram/edit/' . $value->id_mantram); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                        <a href="<?= base_url('admin/mantram/delete/' . $value->id_mantram); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                        <a href="<?= base_url('admin/prosesi/edit/' . $value->id_prosesi_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                        <a href="<?= base_url('admin/prosesi/delete/' . $value->id_prosesi_upacara); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

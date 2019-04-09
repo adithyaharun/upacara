@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <form class="form" action="<?= base_url('upacara/' . (isset($data) ? 'update/' . $data->id_upacara : 'store')) ?>" method="POST" enctype="multipart/form-data">
+            <form class="form" action="<?= base_url('admin/upacara/' . (isset($data) ? 'update/' . $data->id_upacara : 'store')) ?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_yadnya" value="<?= isset($data) ? $data->id_yadnya : $this->input->get('yadnya') ?>" />
                 <div class="panel-body">
                     <div class="row">
@@ -25,16 +25,8 @@
                                 <input type="text" name="nama_upacara" class="form-control" value="<?= isset($data) ? $data->nama_upacara : '' ?>" required />
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Tingkatan Upacara <span class="text-danger">*</span></label>
-                                <select type="text" name="tingkatan_upacara" required class="form-control">
-                                    <option value="utama" <?= isset($data) && $data->tingkatan_upacara == 'utama' ? 'selected' : '' ?>>Utama</option>
-                                    <option value="madya" <?= isset($data) && $data->tingkatan_upacara == 'madya' ? 'selected' : '' ?>>Madya</option>
-                                    <option value="nista" <?= isset($data) && $data->tingkatan_upacara == 'nista' ? 'selected' : '' ?>>Nista</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
-                                <textarea rows="" type="text" name="deskripsi" class="form-control" required><?= isset($data) ? $data->deskripsi : '' ?></textarea>
+                                <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -45,11 +37,6 @@
                                 <button type="button" onclick="document.getElementById('photo-input').click()" style="margin-top: 8px" class="btn btn-info"><i class="fa fa-folder-open" style="margin-right: 4px"></i> Browse...</button>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">
@@ -66,7 +53,7 @@
         let $photo = $('#photo'),
             $photoInput = $('#photo-input')
 
-        CKEDITOR.replace('konten');
+        CKEDITOR.replace('deskripsi');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
                 fileReader = new FileReader();
@@ -80,4 +67,4 @@
     </script>
 </body>
 
-</html> 
+</html>

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <form class="form" action="<?= base_url('tari/' . (isset($data) ? 'update/' . $data->id_tari : 'store')) ?>" method="POST" enctype="multipart/form-data">
+            <form class="form" action="<?= base_url('admin/tari/' . (isset($data) ? 'update/' . $data->id_tari : 'store')) ?>" method="POST" enctype="multipart/form-data">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -36,11 +36,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
-                                <textarea rows="" type="text" name="deskripsi" class="form-control" required><?= isset($data) ? $data->deskripsi : '' ?></textarea>
+                                <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
+                                <input type="text" name="deskripsi" class="form-control" required value="<?= isset($data) ? $data->deskripsi : '' ?>" />
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class=" col-lg-6">
                             <div class="form-group">
                                 <label class="control-label">Gambar <span class="text-danger">*</span></label><br>
                                 <img src="<?= isset($data) && $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png'); ?>" id="photo" height="240" /><br>
@@ -51,8 +51,8 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
+                        <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
+                        <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">
@@ -83,4 +83,4 @@
     </script>
 </body>
 
-</html> 
+</html>
