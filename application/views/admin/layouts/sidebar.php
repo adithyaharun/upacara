@@ -4,7 +4,7 @@
             <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Admin</div>
+            <div class="profile-usertitle-name"><?= $_SESSION['name']; ?></div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         </div>
         <div class="clear"></div>
@@ -83,7 +83,7 @@
             </a>
         </li>
         <li>
-            <a href="<?= base_url('admin/logout') ?>">
+            <a href="<?= base_url('admin/auth/logout') ?>">
                 <i style="width: 24px" class="fa fa-power-off"></i>
                 <span>Keluar</span>
             </a>

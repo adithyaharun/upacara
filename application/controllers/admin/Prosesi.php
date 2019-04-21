@@ -4,6 +4,7 @@ class Prosesi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->auth->check();
         $this->load->model('prosesi_model', 'prosesi');
         $this->load->model('yadnya_model', 'yadnya');
         $this->load->model('tari_model', 'tari');

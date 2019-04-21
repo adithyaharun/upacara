@@ -33,27 +33,23 @@
                             <tr>
                                 <th width="80">ID</th>
                                 <th>Nama</th>
-                                <th width="150">Tingkatan Upacara</th>
                                 <th width="250"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($data as $index => $value) : ?>
-                            <tr>
-                                <td>
-                                    <?= $value->id_upacara ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('admin/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
-                                </td>
-                                <td>
-                                    <?= ucfirst($value->tingkatan_upacara ?: '-') ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('admin/upacara/edit/' . $value->id_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('admin/upacara/delete/' . $value->id_upacara); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <?= $value->id_upacara ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/upacara/edit/' . $value->id_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                        <a href="<?= base_url('admin/upacara/delete/' . $value->id_upacara); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -65,4 +61,4 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
 
-</html> 
+</html>

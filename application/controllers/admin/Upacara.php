@@ -4,6 +4,7 @@ class Upacara extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->auth->check();
         $this->load->model('upacara_model', 'upacara');
         $this->load->model('upacara_detail_model', 'upacara_detail');
         $this->load->model('yadnya_model', 'yadnya');
