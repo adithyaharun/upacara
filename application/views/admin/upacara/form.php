@@ -53,7 +53,7 @@
         let $photo = $('#photo'),
             $photoInput = $('#photo-input')
 
-        CKEDITOR.replace('deskripsi');
+        CKEDITOR.replace('konten');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
                 fileReader = new FileReader();

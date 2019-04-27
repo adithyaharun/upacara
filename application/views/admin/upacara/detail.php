@@ -36,11 +36,11 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="margin-top: 16px">
         <!--/.row-->
-        <div class="row" style="margin-top: 16px; margin-bottom: 16px">
+        <div class="row">
             <div class="col-lg-3">
-                <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png'); ?>" width="100%" />
+                <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets style="margin-top: 16px"/images/placeholder.png'); ?>" width="100%" />
             </div>
             <div class="col-lg-9">
                 <h1 class="page-header" style="margin: 0"><?= $data->nama_upacara ?></h1>
@@ -79,6 +79,7 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
+                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>
@@ -105,6 +106,7 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
+                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>
@@ -131,6 +133,7 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
+                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>
@@ -144,45 +147,45 @@
         <div class="row">
             <div class="col-lg-4">
                 <h3>Tari</h3>
-                <div class="row" style="margin-top: 16px; margin-bottom: 16px">
+                <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->tari as $tari) : ?>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style="margin-top: 16px">
                             <a class="card" href="#" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $tari->nama_tari ?></div>
                             </a>
                         </div>
                     <?php endforeach; ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="tari"><i class="fa fa-plus fa-4x"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <h3>Gamelan</h3>
-                <div class="row" style="margin-top: 16px; margin-bottom: 16px">
+                <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->gamelan as $gamelan) : ?>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style="margin-top: 16px">
                             <a class="card" href="#" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
                             </a>
                         </div>
                     <?php endforeach; ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="gamelan"><i class="fa fa-plus fa-4x"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <h3>Kidung</h3>
-                <div class="row" style="margin-top: 16px; margin-bottom: 16px">
+                <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->kidung as $kidung) : ?>
-                        <div class="col-lg-4">
-                            <a class="card" href="#" style="background-image: url(<?= $kidung->gambar ? base_url('/uploads/' . $kidung->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                        <div class="col-lg-4" style="margin-top: 16px">
+                            <a class="card" href="#" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $kidung->nama_kidung ?></div>
                             </a>
                         </div>
                     <?php endforeach; ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="kidung"><i class="fa fa-plus fa-4x"></i></a>
                     </div>
                 </div>
