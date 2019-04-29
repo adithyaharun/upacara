@@ -12,7 +12,7 @@
     <div class="divider"></div>
     <ul class="nav menu">
         <li>
-            <a href="<?= base_url(); ?>">
+            <a href="<?= base_url('/admin'); ?>">
                 <i style="width: 24px" class="fa fa-home">&nbsp;</i>
                 <span>Beranda</span>
             </a>
