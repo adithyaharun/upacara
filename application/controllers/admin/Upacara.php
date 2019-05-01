@@ -38,28 +38,28 @@ class Upacara extends CI_Controller
         $data = $this->upacara->select('tb_upacara.*, tb_yadnya.nama_yadnya')
             ->join('tb_yadnya', 'tb_upacara.id_yadnya', '=', 'tb_yadnya.id_yadnya')
             ->first();
-        $data->prosesi = $this->upacara_detail->select('tb_prosesi_upacara.*, tb_upacara_detail.kategori')
+        $data->prosesi = $this->upacara_detail->select('tb_upacara_detail.id_detail, tb_prosesi_upacara.*, tb_upacara_detail.kategori')
             ->join('tb_prosesi_upacara', 'tb_upacara_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')
             ->where([
                 'tb_upacara_detail.id_upacara' => $id,
                 'type' => 'prosesi'
             ])
             ->get();
-        $data->tari = $this->upacara_detail->select('tb_tari.*')
+        $data->tari = $this->upacara_detail->select('tb_upacara_detail.id_detail, tb_tari.*')
             ->join('tb_tari', 'tb_upacara_detail.id_item', '=', 'tb_tari.id_tari')
             ->where([
                 'tb_upacara_detail.id_upacara' => $id,
                 'type' => 'tari'
             ])
             ->get();
-        $data->gamelan = $this->upacara_detail->select('tb_gamelan.*')
+        $data->gamelan = $this->upacara_detail->select('tb_upacara_detail.id_detail, tb_gamelan.*')
             ->join('tb_gamelan', 'tb_upacara_detail.id_item', '=', 'tb_gamelan.id_gamelan')
             ->where([
                 'tb_upacara_detail.id_upacara' => $id,
                 'type' => 'gamelan'
             ])
             ->get();
-        $data->kidung = $this->upacara_detail->select('tb_kidung.*')
+        $data->kidung = $this->upacara_detail->select('tb_upacara_detail.id_detail, tb_kidung.*')
             ->join('tb_kidung', 'tb_upacara_detail.id_item', '=', 'tb_kidung.id_kidung')
             ->where([
                 'tb_upacara_detail.id_upacara' => $id,
@@ -137,7 +137,7 @@ class Upacara extends CI_Controller
         $data = $this->upacara->find($id, 'id_upacara');
         $this->upacara->where(['id_upacara' => $id])->delete();
 
-        redirect(base_url('admin/upacara?yadnya=' . $data->id_yadnya));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function add_detail($id)
@@ -150,5 +150,12 @@ class Upacara extends CI_Controller
         ]);
 
         redirect(base_url('admin/upacara/show/' . $id));
+    }
+
+    public function delete_detail($id)
+    {
+        $this->upacara_detail->where(['id_detail' => $id])->delete();
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

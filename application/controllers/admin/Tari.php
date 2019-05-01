@@ -82,7 +82,8 @@ class Tari extends CI_Controller
     public function delete($id)
     {
         $this->tari->where(['id_tari' => $id])->delete();
-        redirect(base_url('tari'));
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function json()

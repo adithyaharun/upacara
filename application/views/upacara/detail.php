@@ -4,17 +4,21 @@
 
 <body>
     <?php $this->load->view('layouts/navigation'); ?>
-
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-3">
-                <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png') ?>" class="card-img-top" alt="...">
-            </div>
-            <div class="col-9">
-                <h1 class="mb-3"><?= $data->nama_upacara ?></h1>
-                <p><?= $data->deskripsi ?></p>
+    <div class="hero" style="background-image: url(<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png') ?>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png') ?>" class="card-img-top" alt="...">
+                </div>
+                <div class="col-9">
+                    <h1 class="mb-3"><?= $data->nama_upacara ?></h1>
+                    <p><?= $data->deskripsi ?></p>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="container py-5">
         <hr />
         <div class="row">
             <div class="col-4">

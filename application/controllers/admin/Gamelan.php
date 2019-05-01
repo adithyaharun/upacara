@@ -80,7 +80,8 @@ class Gamelan extends CI_Controller
     public function delete($id)
     {
         $this->gamelan->where(['id_gamelan' => $id])->delete();
-        redirect(base_url('admin/gamelan'));
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function json()

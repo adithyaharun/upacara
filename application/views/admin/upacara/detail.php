@@ -73,6 +73,7 @@
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
                                                     <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
+                                                    <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +99,8 @@
                                                 <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
+                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary">Lihat</a>
+                                                    <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,6 +127,7 @@
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
                                                     <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
+                                                    <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,9 +150,10 @@
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->tari as $tari) : ?>
                         <div class="col-lg-4" style="margin-top: 16px">
-                            <a class="card" href="#" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $tari->nama_tari ?></div>
-                            </a>
+                                <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
@@ -162,9 +166,10 @@
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->gamelan as $gamelan) : ?>
                         <div class="col-lg-4" style="margin-top: 16px">
-                            <a class="card" href="#" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
-                            </a>
+                                <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
@@ -177,9 +182,10 @@
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->kidung as $kidung) : ?>
                         <div class="col-lg-4" style="margin-top: 16px">
-                            <a class="card" href="#" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $kidung->nama_kidung ?></div>
-                            </a>
+                                <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
@@ -192,6 +198,7 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
     <script>
         let $detailModal = $("#detail-modal");
+        let baseUrl = $('meta[name="base_url"]').attr('content');
 
         $detailModal.on("show.bs.modal", function(e) {
             let type = $(e.relatedTarget).data("type");
@@ -218,6 +225,17 @@
                 .toggle(type === 'prosesi')
                 .find('[name="kategori"]')
                 .prop('disabled', type !== 'prosesi');
+        });
+
+        $('.btn-delete').on('click', function(e) {
+            let id = $(this).data('id');
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (confirm('Apakah anda yakin ingin menghapus item ini?')) {
+                window.location.href = `${baseUrl}admin/upacara/delete_detail/${id}`;
+            }
         });
     </script>
 </body>

@@ -54,7 +54,8 @@ class Kidung extends CI_Controller
     public function delete($id)
     {
         $this->kidung->where(['id_kidung' => $id])->delete();
-        redirect(base_url('admin/kidung'));
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function json()

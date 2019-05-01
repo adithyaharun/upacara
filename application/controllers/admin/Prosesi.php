@@ -115,7 +115,8 @@ class Prosesi extends CI_Controller
     public function delete($id)
     {
         $this->prosesi->where(['id_prosesi' => $id])->delete();
-        redirect(base_url('admin/prosesi'));
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function json()
