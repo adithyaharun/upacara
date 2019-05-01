@@ -79,7 +79,6 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
-                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>
@@ -106,7 +105,6 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
-                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>
@@ -133,7 +131,6 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
-                            style="margin-top: 16px"
                         </div>
                     </div>
                 </div>

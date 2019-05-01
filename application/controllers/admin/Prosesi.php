@@ -16,7 +16,7 @@ class Prosesi extends CI_Controller
     public function index()
     {
         $this->load->view('admin/prosesi/index', [
-            'data' => $this->prosesi->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_prosesi_upacara.id_yadnya')->get()
+            'data' => $this->prosesi->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_prosesi_upacara.id_yadnya', 'left')->get()
         ]);
     }
 
