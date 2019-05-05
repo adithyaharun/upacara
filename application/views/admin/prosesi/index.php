@@ -42,7 +42,7 @@
                                         <?= $value->id_prosesi_upacara ?>
                                     </td>
                                     <td>
-                                        <?= $value->prosesi_upacara ?>
+                                        <a href="<?= base_url('admin/prosesi/detail/' . $value->id_prosesi_upacara) ?>"><?= $value->prosesi_upacara ?></a>
                                     </td>
                                     <td>
                                         <?= $value->nama_yadnya ?>

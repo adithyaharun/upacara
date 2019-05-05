@@ -6,6 +6,7 @@ class Prosesi extends CI_Controller
         parent::__construct();
         $this->auth->check();
         $this->load->model('prosesi_model', 'prosesi');
+        $this->load->model('prosesi_detail_model', 'prosesi_detail');
         $this->load->model('yadnya_model', 'yadnya');
         $this->load->model('tari_model', 'tari');
         $this->load->model('gamelan_model', 'gamelan');
@@ -17,21 +18,6 @@ class Prosesi extends CI_Controller
     {
         $this->load->view('admin/prosesi/index', [
             'data' => $this->prosesi->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_prosesi_upacara.id_yadnya', 'left')->get()
-        ]);
-    }
-
-    public function show($id)
-    {
-        $this->load->view('admin/prosesi/detail', [
-            'data' => $this->prosesi
-                ->select('tb_prosesi_upacara.*, nama_yadnya, nama_tari, nama_gamelan, nama_kidung, nama_mantram, bait_mantram')
-                ->where('id_prosesi_upacara', $id)
-                ->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_prosesi_upacara.id_yadnya', 'left')
-                ->join('tb_tari', 'tb_tari.id_tari', '=', 'tb_prosesi_upacara.id_tari', 'left')
-                ->join('tb_gamelan', 'tb_gamelan.id_gamelan', '=', 'tb_prosesi_upacara.id_gamelan', 'left')
-                ->join('tb_kidung', 'tb_kidung.id_kidung', '=', 'tb_prosesi_upacara.id_kidung', 'left')
-                ->join('tb_mantram', 'tb_mantram.id_mantram', '=', 'tb_prosesi_upacara.id_mantram', 'left')
-                ->first()
         ]);
     }
 
@@ -100,6 +86,40 @@ class Prosesi extends CI_Controller
         redirect(base_url('admin/prosesi'));
     }
 
+    public function detail($id)
+    {
+        $data = $this->prosesi->find($id, 'id_prosesi');
+        $data->tari = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_tari.*')
+            ->join('tb_tari', 'tb_prosesi_detail.id_item', '=', 'tb_tari.id_tari')
+            ->where([
+                'tb_prosesi_detail.id_prosesi' => $id,
+                'type' => 'tari'
+            ])
+            ->get();
+        $data->gamelan = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_gamelan.*')
+            ->join('tb_gamelan', 'tb_prosesi_detail.id_item', '=', 'tb_gamelan.id_gamelan')
+            ->where([
+                'tb_prosesi_detail.id_prosesi' => $id,
+                'type' => 'gamelan'
+            ])
+            ->get();
+        $data->kidung = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_kidung.*')
+            ->join('tb_kidung', 'tb_prosesi_detail.id_item', '=', 'tb_kidung.id_kidung')
+            ->where([
+                'tb_prosesi_detail.id_prosesi' => $id,
+                'type' => 'kidung'
+            ])
+            ->get();
+
+        // return $this->output
+        //     ->set_content_type('application/json')
+        //     ->set_output(json_encode($data->tari));
+
+        $this->load->view('admin/prosesi/detail', [
+            'data' => $data
+        ]);
+    }
+
     public function edit($id)
     {
         $this->load->view('admin/prosesi/form', [
@@ -116,7 +136,7 @@ class Prosesi extends CI_Controller
     {
         $this->prosesi->where(['id_prosesi' => $id])->delete();
 
-        redirect($_SERVER['HTTP_REFERER']);
+        redirect(base_url('admin/prosesi'));
     }
 
     public function json()
@@ -126,5 +146,24 @@ class Prosesi extends CI_Controller
         $this->output
             ->set_content_type('application/json')
             ->set_output(json_encode($data));
+    }
+
+    public function add_detail($id)
+    {
+        $this->prosesi_detail->create([
+            'type' => $this->input->post('type'),
+            'id_item' => $this->input->post('detail'),
+            'kategori' => $this->input->post('kategori'),
+            'id_prosesi' => $id,
+        ]);
+
+        redirect(base_url('admin/prosesi/detail/' . $id));
+    }
+
+    public function delete_detail($id)
+    {
+        $this->prosesi_detail->where(['id_detail' => $id])->delete();
+
+        redirect(base_url('admin/prosesi/detail/' . $id));
     }
 }

@@ -18,7 +18,7 @@
                 <div class="panel">
                     <div class="panel-body">
                         <span>Dewa Yadnya</span>
-                        <h1 class="text-center" style="margin: 1em 0 0.5em; font-weight: bold">100</h1>
+                        <h1 class="text-center" style="margin: 1em 0 0.5em; font-weight: bold"><?= $data['dewa'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="panel panel-teal">
                     <div class="panel-body">
                         <span>Pitra Yadnya</span>
-                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold">100</h1>
+                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['manusa'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="panel panel-blue">
                     <div class="panel-body">
                         <span>Manusa Yadnya</span>
-                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold">100</h1>
+                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['pitra'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="panel panel-orange">
                     <div class="panel-body">
                         <span>Rsi Yadnya</span>
-                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold">100</h1>
+                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['rsi'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="panel panel-red">
                     <div class="panel-body">
                         <span>Bhuta Yadnya</span>
-                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold">100</h1>
+                        <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['bhuta'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -61,4 +61,4 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
 
-</html> 
+</html>
