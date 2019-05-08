@@ -44,57 +44,113 @@
             </div>
             <div class="col-lg-9">
                 <h1 class="page-header" style="margin: 0"><?= $data->prosesi_upacara ?></h1>
+                <?php if ($data->id_mantram !== null) : ?>
+                    <table width="100%">
+                        <tr>
+                            <td width="150"><strong>Mantram</strong></td>
+                            <td><?= $data->nama_mantram; ?></td>
+                        </tr>
+                    </table>
+                <?php endif; ?>
                 <br>
                 <div><?= $data->deskripsi ?></div>
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <h3>Tari</h3>
-                <div class="row" style="margin-bottom: 16px">
-                    <?php foreach ($data->tari as $tari) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $tari->nama_tari ?></div>
-                                <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <a style="text-decoration: none; color: #ffffff;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Tari
+                    </a>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->tari as $tari) : ?>
+                                <div class="col-lg-2">
+                                    <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                                        <div class="card-body"><?= $tari->nama_tari ?></div>
+                                        <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="tari"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                    <div class="col-lg-4" style="margin-top: 16px">
-                        <a class="card" data-toggle="modal" href="#detail-modal" data-type="tari"><i class="fa fa-plus fa-4x"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <h3>Gamelan</h3>
-                <div class="row" style="margin-bottom: 16px">
-                    <?php foreach ($data->gamelan as $gamelan) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
-                                <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+            <div class="panel panel-success">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Gamelan
+                    </a>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->gamelan as $gamelan) : ?>
+                                <div class="col-lg-2">
+                                    <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                                        <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
+                                        <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="gamelan"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                    <div class="col-lg-4" style="margin-top: 16px">
-                        <a class="card" data-toggle="modal" href="#detail-modal" data-type="gamelan"><i class="fa fa-plus fa-4x"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <h3>Kidung</h3>
-                <div class="row" style="margin-bottom: 16px">
-                    <?php foreach ($data->kidung as $kidung) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $kidung->nama_kidung ?></div>
-                                <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+            <div class="panel panel-warning">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Kidung
+                    </a>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->kidung as $kidung) : ?>
+                                <div class="col-lg-2">
+                                    <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                                        <div class="card-body"><?= $kidung->nama_kidung ?></div>
+                                        <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="kidung"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                    <div class="col-lg-4" style="margin-top: 16px">
-                        <a class="card" data-toggle="modal" href="#detail-modal" data-type="kidung"><i class="fa fa-plus fa-4x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        Mantram
+                    </a>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->mantram as $mantram) : ?>
+                                <div class="col-lg-2">
+                                    <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                                        <div class="card-body"><?= $mantram->nama_mantram ?></div>
+                                        <a data-id="<?= $mantram->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="mantram"><i class="fa fa-plus fa-4x"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

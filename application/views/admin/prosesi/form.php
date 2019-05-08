@@ -32,6 +32,14 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Mantram <span class="text-danger">*</span></label>
+                                <select type="text" name="id_mantram" required class="form-control">
+                                    <?php foreach ($mantram as $index => $value) : ?>
+                                        <option value="<?= $value->id_mantram ?>" <?= isset($data) && $data->id_mantram == $value->id_mantram ? 'selected' : '' ?>><?= $value->nama_mantram ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
                                 <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>

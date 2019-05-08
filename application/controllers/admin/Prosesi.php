@@ -90,7 +90,11 @@ class Prosesi extends CI_Controller
 
     public function detail($id)
     {
-        $data = $this->prosesi->find($id, 'id_prosesi');
+        $data = $this->prosesi
+            ->select('tb_prosesi_upacara.*, tb_mantram.nama_mantram')
+            ->join('tb_mantram', 'tb_prosesi_upacara.id_mantram', '=', 'tb_mantram.id_mantram', 'left')
+            ->where('id_prosesi_upacara', $id)
+            ->first();
         $data->tari = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_tari.*')
             ->join('tb_tari', 'tb_prosesi_detail.id_item', '=', 'tb_tari.id_tari')
             ->where([
@@ -110,6 +114,13 @@ class Prosesi extends CI_Controller
             ->where([
                 'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'kidung'
+            ])
+            ->get();
+        $data->mantram = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_mantram.*')
+            ->join('tb_mantram', 'tb_prosesi_detail.id_item', '=', 'tb_mantram.id_mantram')
+            ->where([
+                'tb_prosesi_detail.id_prosesi' => $id,
+                'type' => 'mantram'
             ])
             ->get();
 
