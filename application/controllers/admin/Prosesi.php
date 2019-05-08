@@ -95,6 +95,13 @@ class Prosesi extends CI_Controller
             ->join('tb_mantram', 'tb_prosesi_upacara.id_mantram', '=', 'tb_mantram.id_mantram', 'left')
             ->where('id_prosesi_upacara', $id)
             ->first();
+        $data->prosesi = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_prosesi_upacara.*')
+            ->join('tb_prosesi_upacara', 'tb_prosesi_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')
+            ->where([
+                'tb_prosesi_detail.id_prosesi' => $id,
+                'type' => 'prosesi'
+            ])
+            ->get();
         $data->tari = $this->prosesi_detail->select('tb_prosesi_detail.id_detail, tb_tari.*')
             ->join('tb_tari', 'tb_prosesi_detail.id_item', '=', 'tb_tari.id_tari')
             ->where([
