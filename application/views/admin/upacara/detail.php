@@ -72,7 +72,7 @@
                                                 <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
+                                                    <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
                                                     <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
