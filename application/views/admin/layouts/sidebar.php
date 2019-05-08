@@ -30,10 +30,10 @@
                     <a href="<?= base_url('admin/upacara?yadnya=1') ?>">Dewa Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/upacara?yadnya=2') ?>">Pitra Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=2') ?>">Manusa Yadnya</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/upacara?yadnya=3') ?>">Manusa Yadnya</a>
+                    <a href="<?= base_url('admin/upacara?yadnya=3') ?>">Pitra Yadnya</a>
                 </li>
                 <li>
                     <a href="<?= base_url('admin/upacara?yadnya=4') ?>">Rsi Yadnya</a>

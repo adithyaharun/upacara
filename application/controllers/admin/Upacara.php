@@ -37,6 +37,7 @@ class Upacara extends CI_Controller
     {
         $data = $this->upacara->select('tb_upacara.*, tb_yadnya.nama_yadnya')
             ->join('tb_yadnya', 'tb_upacara.id_yadnya', '=', 'tb_yadnya.id_yadnya')
+            ->where('tb_upacara.id_upacara', $id)
             ->first();
         $data->prosesi = $this->upacara_detail->select('tb_upacara_detail.id_detail, tb_prosesi_upacara.*, tb_upacara_detail.kategori')
             ->join('tb_prosesi_upacara', 'tb_upacara_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')

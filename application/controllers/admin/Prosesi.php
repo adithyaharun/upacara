@@ -164,6 +164,6 @@ class Prosesi extends CI_Controller
     {
         $this->prosesi_detail->where(['id_detail' => $id])->delete();
 
-        redirect(base_url('admin/prosesi/detail/' . $id));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }
