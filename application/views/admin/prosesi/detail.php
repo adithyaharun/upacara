@@ -40,7 +40,7 @@
         <!--/.row-->
         <div class="row">
             <div class="col-lg-3">
-                <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets style="margin-top: 16px"/images/placeholder.png'); ?>" width="100%" />
+                <img src="<?= $data->gambar !== null ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png'); ?>" width="100%" />
             </div>
             <div class="col-lg-9">
                 <h1 class="page-header" style="margin: 0"><?= $data->prosesi_upacara ?></h1>

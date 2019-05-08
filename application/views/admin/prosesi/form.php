@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
+                                <label class="control-label">Nama Prosesi <span class="text-danger">*</span></label>
                                 <input type="text" name="prosesi_upacara" class="form-control" value="<?= isset($data) ? $data->prosesi_upacara : '' ?>" required />
                             </div>
                             <div class="form-group">
@@ -31,38 +31,9 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <hr>
                             <div class="form-group">
-                                <label class="control-label">Mantram <span class="text-danger">*</span></label>
-                                <select type="text" name="id_mantram" required class="form-control">
-                                    <?php foreach ($mantram as $index => $value) : ?>
-                                        <option value="<?= $value->id_mantram ?>" <?= isset($data) && $data->id_mantram == $value->id_mantram ? 'selected' : '' ?>><?= $value->nama_mantram ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Tari</label>
-                                <select type="text" name="id_tari" required class="form-control">
-                                    <?php foreach ($tari as $index => $value) : ?>
-                                        <option value="<?= $value->id_tari ?>" <?= isset($data) && $data->id_tari == $value->id_tari ? 'selected' : '' ?>><?= $value->nama_tari ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Gamelan</label>
-                                <select type="text" name="id_gamelan" required class="form-control">
-                                    <?php foreach ($gamelan as $index => $value) : ?>
-                                        <option value="<?= $value->id_gamelan ?>" <?= isset($data) && $data->id_gamelan == $value->id_gamelan ? 'selected' : '' ?>><?= $value->nama_gamelan ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Kidung</label>
-                                <select type="text" name="id_kidung" required class="form-control">
-                                    <?php foreach ($kidung as $index => $value) : ?>
-                                        <option value="<?= $value->id_kidung ?>" <?= isset($data) && $data->id_kidung == $value->id_kidung ? 'selected' : '' ?>><?= $value->nama_kidung ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
+                                <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>
                         </div>
                         <div class=" col-lg-6">

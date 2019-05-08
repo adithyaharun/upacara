@@ -47,6 +47,7 @@ class Prosesi extends CI_Controller
 
         $this->prosesi->create([
             'prosesi_upacara' => $this->input->post('prosesi_upacara'),
+            'deskripsi' => $this->input->post('deskripsi'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'id_tari' => $this->input->post('id_tari'),
             'id_gamelan' => $this->input->post('id_gamelan'),
@@ -75,6 +76,7 @@ class Prosesi extends CI_Controller
 
         $this->prosesi->update($id, [
             'prosesi_upacara' => $this->input->post('prosesi_upacara'),
+            'deskripsi' => $this->input->post('deskripsi'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'id_tari' => $this->input->post('id_tari'),
             'id_gamelan' => $this->input->post('id_gamelan'),
