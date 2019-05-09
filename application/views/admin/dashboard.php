@@ -25,7 +25,7 @@
             <div class="col-xs-6 col-md-2 col-lg-2">
                 <div class="panel panel-teal">
                     <div class="panel-body">
-                        <span>Pitra Yadnya</span>
+                        <span>Manusa Yadnya</span>
                         <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['manusa'] ?></h1>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
             <div class="col-xs-6 col-md-2 col-lg-2">
                 <div class="panel panel-blue">
                     <div class="panel-body">
-                        <span>Manusa Yadnya</span>
+                        <span>Pitra Yadnya</span>
                         <h1 class="text-center" style="margin: 1em 0 0.5em; color: white; font-weight: bold"><?= $data['pitra'] ?></h1>
                     </div>
                 </div>
