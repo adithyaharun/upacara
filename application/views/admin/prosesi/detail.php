@@ -36,14 +36,6 @@
             </div>
             <div class="col-lg-9">
                 <h1 class="page-header" style="margin: 0"><?= $data->prosesi_upacara ?></h1>
-                <?php if ($data->id_mantram !== null) : ?>
-                    <table width="100%">
-                        <tr>
-                            <td width="150"><strong>Mantram</strong></td>
-                            <td><?= $data->nama_mantram; ?></td>
-                        </tr>
-                    </table>
-                <?php endif; ?>
                 <br>
                 <div><?= $data->deskripsi ?></div>
             </div>
