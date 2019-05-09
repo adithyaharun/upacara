@@ -29,7 +29,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="80">ID</th>
+                                <th width="80">No.</th>
                                 <th>Nama Kidung</th>
                                 <th width="150">Golongan</th>
                                 <th width="250"></th>
@@ -37,18 +37,18 @@
                         </thead>
                         <tbody>
                             <?php foreach ($data as $index => $value) : ?>
-                            <tr>
-                                <td>
-                                    <?= $value->id_kidung ?>
-                                </td>
-                                <td>
-                                    <?= $value->nama_kidung ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('admin/kidung/edit/' . $value->id_kidung); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('admin/kidung/delete/' . $value->id_kidung); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <?= $index + 1 ?>
+                                    </td>
+                                    <td>
+                                        <?= $value->nama_kidung ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/kidung/edit/' . $value->id_kidung); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                        <a href="<?= base_url('admin/kidung/delete/' . $value->id_kidung); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -60,4 +60,4 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
 
-</html> 
+</html>

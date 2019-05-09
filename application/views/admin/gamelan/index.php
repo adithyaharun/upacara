@@ -29,7 +29,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="80">ID</th>
+                                <th width="80">No.</th>
                                 <th>Nama Gamelan</th>
                                 <th width="150">Golongan</th>
                                 <th width="250"></th>
@@ -39,7 +39,7 @@
                             <?php foreach ($data as $index => $value) : ?>
                                 <tr>
                                     <td>
-                                        <?= $value->id_gamelan ?>
+                                        <?= $index + 1 ?>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('admin/gamelan/show/' . $value->id_gamelan) ?>"><?= $value->nama_gamelan ?></a>

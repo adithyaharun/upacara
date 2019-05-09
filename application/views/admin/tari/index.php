@@ -29,7 +29,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="80">ID</th>
+                                <th width="80">No.</th>
                                 <th>Nama Tari</th>
                                 <th width="150">Jumlah Penari</th>
                                 <th width="150">Fungsi Tari</th>
@@ -38,24 +38,24 @@
                         </thead>
                         <tbody>
                             <?php foreach ($data as $index => $value) : ?>
-                            <tr>
-                                <td>
-                                    <?= $value->id_tari ?>
-                                </td>
-                                <td>
-                                    <?= $value->nama_tari ?>
-                                </td>
-                                <td>
-                                    <?= $value->jml_penari ?> orang
-                                </td>
-                                <td>
-                                    <?= ucfirst($value->fungsi_tari ?: '-') ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('admin/tari/edit/' . $value->id_tari); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('admin/tari/delete/' . $value->id_tari); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <?= $index + 1 ?>
+                                    </td>
+                                    <td>
+                                        <?= $value->nama_tari ?>
+                                    </td>
+                                    <td>
+                                        <?= $value->jml_penari ?> orang
+                                    </td>
+                                    <td>
+                                        <?= ucfirst($value->fungsi_tari ?: '-') ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/tari/edit/' . $value->id_tari); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                        <a href="<?= base_url('admin/tari/delete/' . $value->id_tari); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -67,4 +67,4 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
 
-</html> 
+</html>

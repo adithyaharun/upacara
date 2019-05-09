@@ -29,7 +29,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="80">ID</th>
+                                <th width="80">No.</th>
                                 <th>Deskripsi</th>
                                 <th>Yadnya</th>
                                 <th width="250"></th>
@@ -39,7 +39,7 @@
                             <?php foreach ($data as $index => $value) : ?>
                                 <tr>
                                     <td>
-                                        <?= $value->id_prosesi_upacara ?>
+                                        <?= $index + 1 ?>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('admin/prosesi/detail/' . $value->id_prosesi_upacara) ?>"><?= $value->prosesi_upacara ?></a>

@@ -31,7 +31,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="80">ID</th>
+                                <th width="80">No.</th>
                                 <th>Nama</th>
                                 <th width="250"></th>
                             </tr>
@@ -40,7 +40,7 @@
                             <?php foreach ($data as $index => $value) : ?>
                                 <tr>
                                     <td>
-                                        <?= $value->id_upacara ?>
+                                        <?= $index + 1 ?>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('admin/upacara/show/' . $value->id_upacara) ?>"><?= $value->nama_upacara ?></a>
