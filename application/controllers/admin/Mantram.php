@@ -65,6 +65,13 @@ class Mantram extends CI_Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $this->load->view('admin/mantram/detail', [
+            'data' => $this->mantram->find($id, 'id_mantram')
+        ]);
+    }
+
     public function delete($id)
     {
         $this->mantram->where(['id_mantram' => $id])->delete();

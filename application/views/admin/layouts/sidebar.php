@@ -58,7 +58,7 @@
         <li>
             <a href="<?= base_url('admin/mantram') ?>">
                 <i style="width: 24px" class="fa fa-archive"></i>
-                <span>Mantra</span>
+                <span>Mantram </span>
             </a>
         </li>
         <li>

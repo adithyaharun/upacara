@@ -42,7 +42,7 @@
                                         <?= $value->id_mantram ?>
                                     </td>
                                     <td>
-                                        <?= $value->nama_mantram ?>
+                                        <a href="<?= base_url('admin/mantram/show/' . $value->id_mantram) ?>"><?= $value->nama_mantram ?></a>
                                     </td>
                                     <td>
                                         <?= ucfirst($value->kategori ?: '-') ?>

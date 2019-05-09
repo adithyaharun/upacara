@@ -77,6 +77,13 @@ class Gamelan extends CI_Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $this->load->view('admin/gamelan/detail', [
+            'data' => $this->gamelan->find($id, 'id_gamelan')
+        ]);
+    }
+
     public function delete($id)
     {
         $this->gamelan->where(['id_gamelan' => $id])->delete();

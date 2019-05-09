@@ -36,8 +36,26 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
-                                <input type="text" name="deskripsi" class="form-control" required value="<?= isset($data) ? $data->deskripsi : '' ?>" />
+                                <label class="control-label">Gamelan</label>
+                                <select type="text" name="id_gamelan" class="form-control">
+                                    <option value <?= isset($data) && $data->id_gamelan == null ? 'selected' : '' ?>>Pilih Gamelan...</option>
+                                    <?php foreach ($gamelan as $index => $value) : ?>
+                                        <option value="<?= $value->id_gamelan ?>" <?= isset($data) && $data->id_gamelan == $value->id_gamelan ? 'selected' : '' ?>><?= $value->nama_gamelan ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Kidung</label>
+                                <select type="text" name="id_kidung" class="form-control">
+                                    <option value <?= isset($data) && $data->id_kidung == null ? 'selected' : '' ?>>Pilih Kidung...</option>
+                                    <?php foreach ($kidung as $index => $value) : ?>
+                                        <option value="<?= $value->id_kidung ?>" <?= isset($data) && $data->id_kidung == $value->id_kidung ? 'selected' : '' ?>><?= $value->nama_kidung ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Video / Audio <span class="text-danger">*</span></label>
+                                <textarea name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
                         </div>
                         <div class=" col-lg-6">

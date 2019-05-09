@@ -6,6 +6,8 @@ class Tari extends CI_Controller
         parent::__construct();
         $this->auth->check();
         $this->load->model('tari_model', 'tari');
+        $this->load->model('gamelan_model', 'gamelan');
+        $this->load->model('kidung_model', 'kidung');
     }
 
     public function index()
@@ -17,7 +19,10 @@ class Tari extends CI_Controller
 
     public function create()
     {
-        $this->load->view('admin/tari/form');
+        $this->load->view('admin/tari/form', [
+            'gamelan' => $this->gamelan->get(),
+            'kidung' => $this->kidung->get(),
+        ]);
     }
 
     public function store()
@@ -40,6 +45,8 @@ class Tari extends CI_Controller
             'fungsi_tari' => $this->input->post('fungsi_tari'),
             'gambar' => $image,
             'konten' => $this->input->post('konten'),
+            'id_gamelan' => $this->input->post('id_gamelan') == 0 ? null : $this->input->post('id_gamelan'),
+            'id_kidung' => $this->input->post('id_kidung') == 0 ? null : $this->input->post('id_kidung'),
         ]);
 
         redirect(base_url('tari'));
@@ -67,6 +74,8 @@ class Tari extends CI_Controller
             'fungsi_tari' => $this->input->post('fungsi_tari'),
             'gambar' => $image,
             'konten' => $this->input->post('konten'),
+            'id_gamelan' => $this->input->post('id_gamelan') == 0 ? null : $this->input->post('id_gamelan'),
+            'id_kidung' => $this->input->post('id_kidung') == 0 ? null : $this->input->post('id_kidung'),
         ], 'id_tari');
 
         redirect(base_url('tari'));
@@ -75,7 +84,22 @@ class Tari extends CI_Controller
     public function edit($id)
     {
         $this->load->view('admin/tari/form', [
-            'data' => $this->tari->find($id, 'id_tari')
+            'data' => $this->tari->find($id, 'id_tari'),
+            'gamelan' => $this->gamelan->get(),
+            'kidung' => $this->kidung->get()
+        ]);
+    }
+
+    public function show($id)
+    {
+        $data = $this->tari->select('tb_tari.*, tb_gamelan.nama_gamelan, tb_kidung.nama_kidung')
+            ->join('tb_gamelan', 'tb_tari.id_gamelan', '=', 'tb_gamelan.id_gamelan', 'left')
+            ->join('tb_kidung', 'tb_tari.id_kidung', '=', 'tb_kidung.id_kidung', 'left')
+            ->where('tb_tari.id_tari', $id)
+            ->first();
+
+        $this->load->view('admin/tari/detail', [
+            'data' => $data
         ]);
     }
 

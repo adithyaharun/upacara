@@ -37,21 +37,21 @@
                         </thead>
                         <tbody>
                             <?php foreach ($data as $index => $value) : ?>
-                            <tr>
-                                <td>
-                                    <?= $value->id_gamelan ?>
-                                </td>
-                                <td>
-                                    <?= $value->nama_gamelan ?>
-                                </td>
-                                <td>
-                                    <?= ucfirst($value->golongan ?: '-') ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('admin/gamelan/edit/' . $value->id_gamelan); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
-                                    <a href="<?= base_url('admin/gamelan/delete/' . $value->id_gamelan); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <?= $value->id_gamelan ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/gamelan/show/' . $value->id_gamelan) ?>"><?= $value->nama_gamelan ?></a>
+                                    </td>
+                                    <td>
+                                        <?= ucfirst($value->golongan ?: '-') ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('admin/gamelan/edit/' . $value->id_gamelan); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
+                                        <a href="<?= base_url('admin/gamelan/delete/' . $value->id_gamelan); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger btn-xs"><i class="fa fa-remove" style="margin-right: 4px"></i>Hapus</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -63,4 +63,4 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
 
-</html> 
+</html>
