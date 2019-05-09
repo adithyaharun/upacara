@@ -24,18 +24,11 @@
                                 <input type="text" name="prosesi_upacara" class="form-control" value="<?= isset($data) ? $data->prosesi_upacara : '' ?>" required />
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Yadnya <span class="text-danger">*</span></label>
-                                <select type="text" name="id_yadnya" required class="form-control">
+                                <label class="control-label">Yadnya</label>
+                                <select type="text" name="id_yadnya" class="form-control">
+                                    <option value <?= isset($data) && $data->id_yadnya == null ? 'selected' : '' ?>>Semua Yadnya</option>
                                     <?php foreach ($yadnya as $index => $value) : ?>
                                         <option value="<?= $value->id_yadnya ?>" <?= isset($data) && $data->id_yadnya == $value->id_yadnya ? 'selected' : '' ?>><?= $value->nama_yadnya ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Mantram <span class="text-danger">*</span></label>
-                                <select type="text" name="id_mantram" required class="form-control">
-                                    <?php foreach ($mantram as $index => $value) : ?>
-                                        <option value="<?= $value->id_mantram ?>" <?= isset($data) && $data->id_mantram == $value->id_mantram ? 'selected' : '' ?>><?= $value->nama_mantram ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

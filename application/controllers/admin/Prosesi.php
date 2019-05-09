@@ -48,7 +48,7 @@ class Prosesi extends CI_Controller
         $this->prosesi->create([
             'prosesi_upacara' => $this->input->post('prosesi_upacara'),
             'deskripsi' => $this->input->post('deskripsi'),
-            'id_yadnya' => $this->input->post('id_yadnya'),
+            'id_yadnya' => $this->input->post('id_yadnya') == 0 ? null : $this->input->post('id_yadnya'),
             'id_tari' => $this->input->post('id_tari'),
             'id_gamelan' => $this->input->post('id_gamelan'),
             'id_kidung' => $this->input->post('id_kidung'),
@@ -161,7 +161,13 @@ class Prosesi extends CI_Controller
 
     public function json()
     {
-        $data = $this->prosesi->get();
+        $query = $this->prosesi->select('*');
+
+        if ($this->input->get('id_yadnya') !== null) {
+            $query->where('id_yadnya', $this->input->get('id_yadnya'));
+        }
+
+        $data = $query->orWhereNull('id_yadnya')->get();
 
         $this->output
             ->set_content_type('application/json')

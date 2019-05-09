@@ -56,6 +56,26 @@ class MY_Model extends CI_Model
     }
 
     /**
+     * Where Null.
+     */
+    public function whereNull($key)
+    {
+        $this->db->where("{$key} IS NULL");
+
+        return $this;
+    }
+
+    /**
+     * Where Null.
+     */
+    public function orWhereNull($key)
+    {
+        $this->db->or_where("{$key} IS NULL");
+
+        return $this;
+    }
+
+    /**
      * Select.
      */
     public function select($column = '*')

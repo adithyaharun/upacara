@@ -99,8 +99,8 @@
                                                 <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary">Lihat</a>
-                                                    <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                                    <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,8 +126,8 @@
                                                 <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                                 <div class="panel-body">
                                                     <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-block">Lihat</a>
-                                                    <a href="#" class="btn btn-danger btn-delete" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                                    <a href="<?= base_url('admin/prosesi/show/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                                    <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +150,7 @@
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->tari as $tari) : ?>
                         <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card" style="background-image: url(<?= $tari->gambar !== null ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                                 <div class="card-body"><?= $tari->nama_tari ?></div>
                                 <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                             </div>
@@ -198,13 +198,17 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
     <script>
         let $detailModal = $("#detail-modal");
+        let id_yadnya = "<?= $data->id_yadnya ?>";
         let baseUrl = $('meta[name="base_url"]').attr('content');
 
         $detailModal.on("show.bs.modal", function(e) {
             let type = $(e.relatedTarget).data("type");
 
             $.ajax({
-                url: `<?= base_url('admin/') ?>${type}/json`
+                url: `<?= base_url('admin/') ?>${type}/json`,
+                data: {
+                    id_yadnya
+                }
             }).then(function(response) {
                 let $input = $('[name="detail"]');
 
