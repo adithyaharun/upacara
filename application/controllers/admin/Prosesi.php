@@ -90,6 +90,7 @@ class Prosesi extends CI_Controller
 
     public function detail($id)
     {
+        $isDetail = $this->prosesi_detail->select('COUNT(id_detail) AS count')->where(['id_item' => $id, 'type' => 'prosesi'])->first()->count > 0;
         $data = $this->prosesi
             ->select('tb_prosesi_upacara.*, tb_mantram.nama_mantram')
             ->join('tb_mantram', 'tb_prosesi_upacara.id_mantram', '=', 'tb_mantram.id_mantram', 'left')
@@ -136,7 +137,8 @@ class Prosesi extends CI_Controller
         //     ->set_output(json_encode($data->tari));
 
         $this->load->view('admin/prosesi/detail', [
-            'data' => $data
+            'data' => $data,
+            'isDetail' => $isDetail
         ]);
     }
 

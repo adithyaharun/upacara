@@ -50,34 +50,36 @@
         </div>
         <hr>
         <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFive">
-                    <a style="text-decoration: none; color: #232323;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                        Prosesi
-                    </a>
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="panel-body">
-                        <div class="row">
-                            <?php foreach ($data->prosesi as $prosesi) : ?>
-                                <div class="col-lg-2">
-                                    <div class="panel panel-default" style="border: 1px solid #efeef4">
-                                        <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
-                                        <div class="panel-body">
-                                            <p><?= $prosesi->prosesi_upacara ?></p>
-                                            <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
-                                            <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+            <?php if (!$isDetail) : ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <a style="text-decoration: none; color: #232323;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                            Prosesi
+                        </a>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body">
+                            <div class="row">
+                                <?php foreach ($data->prosesi as $prosesi) : ?>
+                                    <div class="col-lg-2">
+                                        <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                            <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                            <div class="panel-body">
+                                                <p><?= $prosesi->prosesi_upacara ?></p>
+                                                <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                                <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                            </div>
                                         </div>
                                     </div>
+                                <?php endforeach; ?>
+                                <div class="col-lg-2">
+                                    <a class="card" data-toggle="modal" href="#detail-modal" data-type="prosesi"><i class="fa fa-plus fa-4x"></i></a>
                                 </div>
-                            <?php endforeach; ?>
-                            <div class="col-lg-2">
-                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="prosesi"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <div class="panel panel-primary">
                 <div class="panel-heading" role="tab" id="headingOne">
                     <a style="text-decoration: none; color: #ffffff;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
