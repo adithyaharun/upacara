@@ -56,7 +56,7 @@
                         Prosesi
                     </a>
                 </div>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->prosesi as $prosesi) : ?>
@@ -84,7 +84,7 @@
                         Tari
                     </a>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->tari as $tari) : ?>
