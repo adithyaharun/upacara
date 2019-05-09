@@ -33,6 +33,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Video/Audio <span class="text-danger">*</span></label>
+                                <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
                                 <textarea rows="" type="text" name="deskripsi" class="form-control" required><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>
@@ -45,11 +49,6 @@
                                 <button type="button" onclick="document.getElementById('photo-input').click()" style="margin-top: 8px" class="btn btn-info"><i class="fa fa-folder-open" style="margin-right: 4px"></i> Browse...</button>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">

@@ -78,7 +78,7 @@ class Tari extends CI_Controller
             'id_kidung' => $this->input->post('id_kidung') == 0 ? null : $this->input->post('id_kidung'),
         ], 'id_tari');
 
-        redirect(base_url('tari'));
+        redirect(base_url('tari/show/' . $id));
     }
 
     public function edit($id)

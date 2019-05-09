@@ -43,7 +43,7 @@
                                         <?= $index + 1 ?>
                                     </td>
                                     <td>
-                                        <?= $value->nama_tari ?>
+                                        <a href="<?= base_url('admin/tari/show/' . $value->id_tari) ?>"><?= $value->nama_tari ?></a>
                                     </td>
                                     <td>
                                         <?= $value->jml_penari ?> orang
