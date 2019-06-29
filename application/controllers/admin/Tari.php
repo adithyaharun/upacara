@@ -8,6 +8,7 @@ class Tari extends CI_Controller
         $this->load->model('tari_model', 'tari');
         $this->load->model('gamelan_model', 'gamelan');
         $this->load->model('kidung_model', 'kidung');
+        $this->load->model('tabuh_model', 'tabuh');
     }
 
     public function index()
@@ -22,6 +23,7 @@ class Tari extends CI_Controller
         $this->load->view('admin/tari/form', [
             'gamelan' => $this->gamelan->get(),
             'kidung' => $this->kidung->get(),
+            'tabuh' => $this->tabuh->get(),
         ]);
     }
 
@@ -47,6 +49,7 @@ class Tari extends CI_Controller
             'konten' => $this->input->post('konten'),
             'id_gamelan' => $this->input->post('id_gamelan') == 0 ? null : $this->input->post('id_gamelan'),
             'id_kidung' => $this->input->post('id_kidung') == 0 ? null : $this->input->post('id_kidung'),
+            'id_tabuh' => $this->input->post('id_tabuh') == 0 ? null : $this->input->post('id_tabuh'),
         ]);
 
         redirect(base_url('tari'));
@@ -76,6 +79,7 @@ class Tari extends CI_Controller
             'konten' => $this->input->post('konten'),
             'id_gamelan' => $this->input->post('id_gamelan') == 0 ? null : $this->input->post('id_gamelan'),
             'id_kidung' => $this->input->post('id_kidung') == 0 ? null : $this->input->post('id_kidung'),
+            'id_tabuh' => $this->input->post('id_tabuh') == 0 ? null : $this->input->post('id_tabuh'),
         ], 'id_tari');
 
         redirect(base_url('tari/show/' . $id));
@@ -86,6 +90,7 @@ class Tari extends CI_Controller
         $this->load->view('admin/tari/form', [
             'data' => $this->tari->find($id, 'id_tari'),
             'gamelan' => $this->gamelan->get(),
+            'tabuh' => $this->tabuh->get(),
             'kidung' => $this->kidung->get()
         ]);
     }

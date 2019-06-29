@@ -24,11 +24,11 @@ class Upacara extends CI_Controller
                     $yadnya = 1;
                     break;
 
-                case 'pitra_yadnya':
+                case 'manusa_yadnya':
                     $yadnya = 2;
                     break;
 
-                case 'manusa_yadnya':
+                case 'pitra_yadnya':
                     $yadnya = 3;
                     break;
 
@@ -47,7 +47,9 @@ class Upacara extends CI_Controller
 
             $values['yadnya'] = $this->yadnya->find($yadnya, 'id_yadnya');
             $values['data'] = $this->upacara
-                ->where('id_yadnya', $yadnya)
+                ->select('tb_upacara.*, tb_yadnya.nama_yadnya')
+                ->where('tb_upacara.id_yadnya', $yadnya)
+                ->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_upacara.id_yadnya')
                 ->get();
         }
 

@@ -54,6 +54,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Tabuh</label>
+                                <select type="text" name="id_tabuh" class="form-control">
+                                    <option value <?= isset($data) && $data->id_tabuh == null ? 'selected' : '' ?>>Pilih Tabuh...</option>
+                                    <?php foreach ($tabuh as $index => $value) : ?>
+                                        <option value="<?= $value->id_tabuh ?>" <?= isset($data) && $data->id_tabuh == $value->id_tabuh ? 'selected' : '' ?>><?= $value->nama_tabuh ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Video / Audio <span class="text-danger">*</span></label>
                                 <textarea name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>

@@ -7,22 +7,27 @@
 
     <div class="container pt-5">
         <h1 class="text-center mb-5"><?= $yadnya->nama_yadnya ?></h1>
-        <div class="row">
-            <?php foreach ($data as $key => $value) : ?>
-            <div class="col-3">
-                <div class="card">
-                    <img src="<?= $value->gambar ? base_url('uploads/' . $value->gambar) : base_url('assets/images/placeholder.png') ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <strong><?= $value->nama_upacara ?></strong>
+        <?php foreach ($data as $key => $value) : ?>
+            <div class="card">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="<?= $value->gambar ? base_url('uploads/' . $value->gambar) : base_url('assets/images/placeholder.png') ?>" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body col-lg-9 pl-0">
+                        <h4><a href="<?= base_url('upacara/show/' . $value->id_upacara) ?>" class="card-link stretched-link"><?= $value->nama_upacara ?></a></h4>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <i class="fa fa-file mr-1"></i>
+                                <small><?= $value->nama_yadnya ?></small>
+                            </div>
+                        </div>
                         <p><?= $value->deskripsi ?></p>
-                        <a href="<?= base_url('upacara/show/' . $value->id_upacara) ?>" class="card-link stretched-link">Lihat</a>
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
-        </div>
+        <?php endforeach; ?>
     </div>
     <?php $this->load->view('layouts/footer'); ?>
 </body>
 
-</html> 
+</html>

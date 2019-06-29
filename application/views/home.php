@@ -7,7 +7,7 @@
 
     <div class="container pt-5">
         <h1 class="text-center mb-5">E-UPACARA</h1>
-        <form class="form mb-5" action="<?= base_url('search/results') ?>">
+        <form class="form mb-5" action="<?= base_url('search') ?>">
             <input class="form-control" placeholder="Cari disini..." name="query" />
         </form>
         <div class="row text-center">
@@ -61,4 +61,4 @@
     <?php $this->load->view('layouts/footer'); ?>
 </body>
 
-</html> 
+</html>

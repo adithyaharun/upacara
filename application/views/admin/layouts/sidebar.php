@@ -68,6 +68,12 @@
             </a>
         </li>
         <li>
+            <a href="<?= base_url('admin/tabuh') ?>">
+                <i style="width: 24px" class="fa fa-mortar-board"></i>
+                <span>Tabuh</span>
+            </a>
+        </li>
+        <li>
             <a href="<?= base_url('admin/prosesi') ?>">
                 <i style="width: 24px" class="fa fa-refresh"></i>
                 <span>Prosesi</span>
