@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html class="with-background">
 <?php $this->load->view('layouts/head', ['title' => 'Hasil Pencarian']); ?>
 
 <body>
     <?php $this->load->view('layouts/navigation'); ?>
-    <div class="container pt-5">
+    <div id="content" class="container my-5 py-5 rounded shadow-lg bg-white">
         <h1 class="text-center mb-5">Hasil Pencarian</h1>
         <form class="form mb-5" action="<?= base_url('search') ?>">
-            <input class="form-control" placeholder="Cari disini..." value="<?= $this->input->get('query'); ?>" name="query" />
+            <div class="input-group">
+                <input class="form-control" placeholder="Cari disini..." name="query" value="<?= $this->input->get('query'); ?>" />
+                <span class="input-group-append">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Cari</button>
+                </span>
+            </div>
         </form>
         <ul class="nav nav-pills" id="search-tab">
             <?php if (count($upacara) > 0) : ?>
@@ -100,7 +105,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="card-title"><a href="<?= base_url('kidung/show/' . $k->id_kidung); ?>"><?= highlight_phrase($k->nama_kidung, $this->input->get('query'), '<span style="text-decoration: underline">', '</span>'); ?></a></h5>
-                                <div class="card-text"><?= word_limiter($k->deskripsi, 50); ?></div>
+                                <div class="card-text"><?= word_limiter($k->deskripsi_kidung, 50); ?></div>
                             </div>
                         </div>
                     <?php endforeach; ?>

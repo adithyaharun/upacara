@@ -37,6 +37,10 @@
                                 <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Tabuh <span class="text-danger">*</span></label>
+                                <select name="tabuh[]" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
                                 <textarea rows="" type="text" name="deskripsi" class="form-control" required><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>
@@ -61,9 +65,14 @@
     <!-- Footer -->
     <?php $this->load->view('admin/layouts/footer'); ?>
     <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
+    <script src="<?= base_url('assets/select2/select2.min.js') ?>"></script>
+    <link href="<?= base_url('assets/select2/select2.min.css') ?>" rel="stylesheet" />
     <script>
         let $photo = $('#photo'),
-            $photoInput = $('#photo-input')
+            $photoInput = $('#photo-input'),
+            tabuhData = <?= json_encode($tabuh); ?>
+
+        console.log(tabuhData)
 
         CKEDITOR.replace('deskripsi');
         $photoInput.on('change', function(e) {
@@ -76,6 +85,14 @@
 
             fileReader.readAsDataURL(file);
         });
+
+        $('[name="tabuh[]"]').select2({
+            data: tabuhData,
+            multiple: true,
+            placeholder: 'Pilih tabuh...'
+        });
+
+        $('[name="tabuh[]"]').val('');
     </script>
 </body>
 

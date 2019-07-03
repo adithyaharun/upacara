@@ -6,6 +6,7 @@ class Gamelan extends CI_Controller
         parent::__construct();
         $this->auth->check();
         $this->load->model('gamelan_model', 'gamelan');
+        $this->load->model('tabuh_model', 'tabuh');
     }
 
     public function index()
@@ -17,7 +18,9 @@ class Gamelan extends CI_Controller
 
     public function create()
     {
-        $this->load->view('admin/gamelan/form');
+        $this->load->view('admin/gamelan/form', [
+            'tabuh' => $this->tabuh->select('id_tabuh AS id, nama_tabuh AS text')->get()
+        ]);
     }
 
     public function store()

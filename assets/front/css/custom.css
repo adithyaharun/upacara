@@ -1,3 +1,22 @@
+html.with-background {
+    background-image: url('https://www.korinatour.co.id/wp-content/uploads/2017/05/Objek-Wisata-Pura-Ulun-Danu-Bedugul-Facebook.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+html.with-background body {
+    background: rgba(0,0,0,0.5);
+}
+
+body {
+    min-height: 100vh;
+    padding: 56px 0 3rem;
+}
+
+#content {
+    min-height: 100vh;
+}
+
 .hero {
     padding: 5em 0;
     background-size: cover;
