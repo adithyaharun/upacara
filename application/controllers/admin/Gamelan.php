@@ -76,7 +76,8 @@ class Gamelan extends CI_Controller
     public function edit($id)
     {
         $this->load->view('admin/gamelan/form', [
-            'data' => $this->gamelan->find($id, 'id_gamelan')
+            'data' => $this->gamelan->find($id, 'id_gamelan'),
+            'tabuh' => $this->tabuh->select('id_tabuh AS id, nama_tabuh AS text')->get()
         ]);
     }
 

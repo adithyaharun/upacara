@@ -72,8 +72,6 @@
             $photoInput = $('#photo-input'),
             tabuhData = <?= json_encode($tabuh); ?>
 
-        console.log(tabuhData)
-
         CKEDITOR.replace('deskripsi');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
