@@ -6,6 +6,7 @@
     </title>
     <link href="<?= base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/front/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/swiper/dist/css/swiper.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/front/css/custom.css'); ?>" rel="stylesheet">
 
     <!--[if lt IE 9]>

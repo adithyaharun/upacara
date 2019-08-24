@@ -15,49 +15,44 @@
                 </span>
             </div>
         </form>
-        <div class="row text-center">
-            <div class="col">
-                <div class="card bg-danger">
-                    <div class="card-body">
-                        <a href="<?= base_url('upacara/dewa_yadnya') ?>" class="stretched-link text-white">
-                            <h5 class="m-0 py-5">Dewa Yadnya</h5>
-                        </a>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="card card-upacara gradient-1 text-center">
+                        <div class="card-body">
+                            <h1 class="card-title my-5"><a href="<?= base_url('upacara/dewa_yadnya') ?>" class="stretched-link">Dewa Yadnya</a></h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card bg-info">
-                    <div class="card-body">
-                        <a href="<?= base_url('upacara/pitra_yadnya') ?>" class="stretched-link text-white">
-                            <h5 class="m-0 py-5">Pitra Yadnya</h5>
-                        </a>
+                <div class="swiper-slide">
+                    <div class="card card-upacara gradient-2 text-center">
+                        <div class="card-body">
+                            <h1 class="card-title my-5"><a href="<?= base_url('upacara/pitra_yadnya') ?>" class="stretched-link">Pitra Yadnya</a></h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card bg-warning">
-                    <div class="card-body">
-                        <a href="<?= base_url('upacara/rsi_yadnya') ?>" class="stretched-link text-white">
-                            <h5 class="m-0 py-5">Rsi Yadnya</h5>
-                        </a>
+                <div class="swiper-slide">
+                    <div class="card card-upacara gradient-3 text-center">
+                        <div class="card-body">
+                            <h1 class="card-title my-5"><a href="<?= base_url('upacara/rsi_yadnya') ?>" class="stretched-link">Rsi Yadnya</a></h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card bg-success">
-                    <div class="card-body">
-                        <a href="<?= base_url('upacara/manusa_yadnya') ?>" class="stretched-link text-white">
-                            <h5 class="m-0 py-5">Manusa Yadnya</h5>
-                        </a>
+                <div class="swiper-slide">
+                    <div class="card card-upacara gradient-4 text-center">
+                        <div class="card-body">
+                            <h1 class="card-title my-5"><a href="<?= base_url('upacara/manusa_yadnya') ?>" class="stretched-link">Manusa Yadnya</a></h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card bg-primary">
-                    <div class="card-body">
-                        <a href="<?= base_url('upacara/bhuta_yadnya') ?>" class="stretched-link text-white">
-                            <h5 class="m-0 py-5">Bhuta Yadnya</h5>
-                        </a>
+                <div class="swiper-slide">
+                    <div class="card card-upacara gradient-5 text-center">
+                        <div class="card-body">
+                            <h1 class="card-title my-5"><a href="<?= base_url('upacara/bhuta_yadnya') ?>" class="stretched-link">Bhuta Yadnya</a></h1>
+                        </div>
                     </div>
                 </div>
             </div>
