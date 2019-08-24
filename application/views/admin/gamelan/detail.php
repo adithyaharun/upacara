@@ -15,10 +15,22 @@
                 <h1 class="page-header" style="margin: 0"><?= $data->nama_gamelan ?></h1>
                 <table width="100%">
                     <?php if ($data->golongan !== null) : ?>
-                        <tr>
-                            <td width="150"><strong>Golongan</strong></td>
-                            <td><?= $data->golongan; ?></td>
-                        </tr>
+                    <tr>
+                        <td width="150"><strong>Golongan</strong></td>
+                        <td><?= $data->golongan; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if ($data->golongan !== null) : ?>
+                    <tr>
+                        <td width="150"><strong>Tabuh</strong></td>
+                        <td>
+                            <?php $index = 0; ?>
+                            <?php foreach ($gamelan_tabuh as $i => $gt) : ?>
+                                <?= $gt->nama_tabuh . ($index < $i ? ", " : ""); ?>
+                                <?php $index++ ?>
+                            <?php endforeach; ?>
+                        </td>
+                    </tr>
                     <?php endif; ?>
                 </table>
                 <br>

@@ -33,8 +33,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Video/Audio <span class="text-danger">*</span></label>
-                                <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
+                                <label class="control-label">Video/Audio</label>
+                                <textarea name="konten" id="konten" class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tabuh <span class="text-danger">*</span></label>
@@ -70,7 +70,14 @@
     <script>
         let $photo = $('#photo'),
             $photoInput = $('#photo-input'),
-            tabuhData = <?= json_encode($tabuh); ?>
+            tabuhData = <?= json_encode($tabuh); ?>,
+            selectedValues = [];
+
+        <?php if (isset($gamelan_tabuh)) : ?>
+            <?php foreach ($gamelan_tabuh as $gt) : ?>
+                selectedValues.push('<?= $gt->id_tabuh ?>');
+            <?php endforeach; ?>
+        <?php endif; ?>
 
         CKEDITOR.replace('deskripsi');
         $photoInput.on('change', function(e) {
@@ -90,7 +97,7 @@
             placeholder: 'Pilih tabuh...'
         });
 
-        $('[name="tabuh[]"]').val('');
+        $('[name="tabuh[]"]').val(selectedValues).trigger('change');
     </script>
 </body>
 
