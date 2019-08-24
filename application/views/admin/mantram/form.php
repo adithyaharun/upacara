@@ -14,11 +14,11 @@
                 </h1>
             </div>
         </div>
-        <div class="panel panel-default">
-            <form class="form" action="<?= base_url('admin/mantram/' . (isset($data) ? 'update/' . $data->id_mantram : 'store')) ?>" method="POST" enctype="multipart/form-data">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <form class="form" action="<?= base_url('admin/mantram/' . (isset($data) ? 'update/' . $data->id_mantram : 'store')) ?>" method="POST" enctype="multipart/form-data">
+                        <div class="panel-body">
                             <div class="form-group">
                                 <label class="control-label">Nama Mantram <span class="text-danger">*</span></label>
                                 <input type="text" name="nama_mantram" class="form-control" required value="<?= isset($data) ? $data->nama_mantram : '' ?>" />
@@ -35,20 +35,18 @@
                                 <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
                                 <input type="text" name="konten" class="form-control" required value="<?= isset($data) ? $data->konten : '' ?>" />
                             </div>
-                        </div>
-                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="control-label">Bait Mantram <span class="text-danger">*</span></label>
-                                <textarea rows="7" type="text" name="bait_mantram" class="form-control" required><?= isset($data) ? $data->bait_mantram : '' ?></textarea>
+                                <textarea rows="7" type="text" name="bait_mantram" id="bait_mantram" class="form-control" required><?= isset($data) ? $data->bait_mantram : '' ?></textarea>
                             </div>
                         </div>
-                    </div>
+                        <div class="panel-footer">
+                            <a href="<?= base_url('admin/mantram'); ?>" class="btn btn-default">Batal</a>
+                            <button class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="panel-footer">
-                    <a href="<?= base_url('admin/mantram'); ?>" class="btn btn-default">Batal</a>
-                    <button class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
     <!-- Footer -->
@@ -58,7 +56,7 @@
         let $photo = $('#photo'),
             $photoInput = $('#photo-input')
 
-        CKEDITOR.replace('deskripsi');
+        CKEDITOR.replace('bait_mantram');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
                 fileReader = new FileReader();

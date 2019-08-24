@@ -38,7 +38,7 @@
                     <hr>
                     <div class="form-group">
                         <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
+                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">
@@ -55,7 +55,7 @@
         let $photo = $('#photo'),
             $photoInput = $('#photo-input')
 
-        CKEDITOR.replace('deskripsi');
+        CKEDITOR.replace('konten');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
                 fileReader = new FileReader();
