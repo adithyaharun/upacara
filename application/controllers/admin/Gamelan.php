@@ -48,7 +48,7 @@ class Gamelan extends CI_Controller
         foreach ($this->input->post('tabuh') as $tabuh) {
             $this->gamelan_detail->create([
                 'id_tabuh' => $tabuh,
-                'id_gamelan' => $gamelan->id
+                'id_gamelan' => $gamelan->id_gamelan
             ]);
         }
 

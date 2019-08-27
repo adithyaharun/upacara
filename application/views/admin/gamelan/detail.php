@@ -24,10 +24,9 @@
                     <tr>
                         <td width="150"><strong>Tabuh</strong></td>
                         <td>
-                            <?php $index = 0; ?>
+                            <?php $index = count($gamelan_tabuh) - 1; ?>
                             <?php foreach ($gamelan_tabuh as $i => $gt) : ?>
-                                <?= $gt->nama_tabuh . ($index < $i ? ", " : ""); ?>
-                                <?php $index++ ?>
+                                <?= $gt->nama_tabuh . ($i < $index ? ", " : ""); ?>
                             <?php endforeach; ?>
                         </td>
                     </tr>

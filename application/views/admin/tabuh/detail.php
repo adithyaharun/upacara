@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('admin/layouts/head', ['title' => $data->nama_gamelan]); ?>
+<?php $this->load->view('admin/layouts/head', ['title' => $data->nama_tabuh]); ?>
 
 <body>
     <?php $this->load->view('admin/layouts/navigation'); ?>
@@ -12,7 +12,7 @@
                 <img src="<?= $data->gambar !== null ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder.png'); ?>" width="100%" />
             </div>
             <div class="col-lg-9">
-                <h1 class="page-header" style="margin: 0"><?= $data->nama_gamelan ?></h1>
+                <h1 class="page-header" style="margin: 0"><?= $data->nama_tabuh ?></h1>
                 <table width="100%">
                 </table>
                 <br>
