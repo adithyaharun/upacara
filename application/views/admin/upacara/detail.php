@@ -50,98 +50,108 @@
             </div>
         </div>
         <hr>
+        <?php if (isset($_SESSION['error'])) : ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger">
+                    <a class="close" data-dismiss="alert">&times;</a>
+                    <span><?= $_SESSION['error'] ?></span>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="clearfix" style="margin-bottom: 16px">
             <h3 style="margin: 0" class="pull-left">Prosesi</h3>
             <a href="#" data-toggle="modal" data-target="#detail-modal" class="btn btn-sm btn-primary pull-right" data-type="prosesi"><i class="fa fa-plus"></i> Tambah Prosesi</a>
         </div>
         <?php if (count($data->prosesi) > 0) : ?>
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-primary">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <a style="text-decoration: none; color: #ffffff;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Prosesi Awal
-                        </a>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <div class="row">
-                                <?php foreach ($data->prosesi as $prosesi) : ?>
-                                    <?php if ($prosesi->kategori == 'awal') : ?>
-                                        <div class="col-lg-2">
-                                            <div class="panel panel-default" style="border: 1px solid #efeef4">
-                                                <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
-                                                <div class="panel-body">
-                                                    <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
-                                                    <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <a style="text-decoration: none; color: #ffffff;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Prosesi Awal
+                    </a>
                 </div>
-                <div class="panel panel-success">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Prosesi Puncak
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            <div class="row">
-                                <?php foreach ($data->prosesi as $prosesi) : ?>
-                                    <?php if ($prosesi->kategori == 'puncak') : ?>
-                                        <div class="col-lg-2">
-                                            <div class="panel panel-default" style="border: 1px solid #efeef4">
-                                                <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
-                                                <div class="panel-body">
-                                                    <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
-                                                    <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->prosesi as $prosesi) : ?>
+                            <?php if ($prosesi->kategori == 'awal') : ?>
+                            <div class="col-lg-2">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                    <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                    <div class="panel-body">
+                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                        <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-warning">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                            Prosesi Akhir
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                            <div class="row">
-                                <?php foreach ($data->prosesi as $prosesi) : ?>
-                                    <?php if ($prosesi->kategori == 'akhir') : ?>
-                                        <div class="col-lg-2">
-                                            <div class="panel panel-default" style="border: 1px solid #efeef4">
-                                                <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
-                                                <div class="panel-body">
-                                                    <p><?= $prosesi->prosesi_upacara ?></p>
-                                                    <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
-                                                    <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </div>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="panel panel-success">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Prosesi Puncak
+                    </a>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->prosesi as $prosesi) : ?>
+                            <?php if ($prosesi->kategori == 'puncak') : ?>
+                            <div class="col-lg-2">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                    <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                    <div class="panel-body">
+                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                        <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-warning">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Prosesi Akhir
+                    </a>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->prosesi as $prosesi) : ?>
+                            <?php if ($prosesi->kategori == 'akhir') : ?>
+                            <div class="col-lg-2">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                    <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                    <div class="panel-body">
+                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                        <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php else : ?>
-            <div style="padding: 32px; background: rgba(0,0,0,0.1)" class="text-center">
-                <h4><em>Tidak ada prosesi pada upacara ini.</em></h4>
-            </div>
+        <div style="padding: 32px; background: rgba(0,0,0,0.1)" class="text-center">
+            <h4><em>Tidak ada prosesi pada upacara ini.</em></h4>
+        </div>
         <?php endif; ?>
         <hr>
         <div class="row">
@@ -149,12 +159,12 @@
                 <h3>Tari</h3>
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->tari as $tari) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= $tari->gambar !== null ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $tari->nama_tari ?></div>
-                                <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                            </div>
+                    <div class="col-lg-4" style="margin-top: 16px">
+                        <div class="card" style="background-image: url(<?= $tari->gambar !== null ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card-body"><?= $tari->nama_tari ?></div>
+                            <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                         </div>
+                    </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="tari"><i class="fa fa-plus fa-4x"></i></a>
@@ -165,12 +175,12 @@
                 <h3>Gamelan</h3>
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->gamelan as $gamelan) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
-                                <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                            </div>
+                    <div class="col-lg-4" style="margin-top: 16px">
+                        <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
+                            <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                         </div>
+                    </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="gamelan"><i class="fa fa-plus fa-4x"></i></a>
@@ -181,12 +191,12 @@
                 <h3>Kidung</h3>
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->kidung as $kidung) : ?>
-                        <div class="col-lg-4" style="margin-top: 16px">
-                            <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
-                                <div class="card-body"><?= $kidung->nama_kidung ?></div>
-                                <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                            </div>
+                    <div class="col-lg-4" style="margin-top: 16px">
+                        <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                            <div class="card-body"><?= $kidung->nama_kidung ?></div>
+                            <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                         </div>
+                    </div>
                     <?php endforeach; ?>
                     <div class="col-lg-4" style="margin-top: 16px">
                         <a class="card" data-toggle="modal" href="#detail-modal" data-type="kidung"><i class="fa fa-plus fa-4x"></i></a>

@@ -143,6 +143,18 @@ class Upacara extends CI_Controller
 
     public function add_detail($id)
     {
+        $checkDuplicate = $this->upacara_detail->where([
+            'type' => $this->input->post('type'),
+            'id_item' => $this->input->post('detail'),
+            'kategori' => $this->input->post('kategori'),
+            'id_upacara' => $id,
+        ])->get();
+
+        if (count($checkDuplicate) > 0) {
+            $this->session->set_flashdata('error', ucwords($this->input->post('type')) . " ini sudah ada dalam upacara.");
+            redirect(base_url('admin/upacara/show/' . $id));
+        }
+        
         $this->upacara_detail->create([
             'type' => $this->input->post('type'),
             'id_item' => $this->input->post('detail'),
