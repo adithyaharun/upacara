@@ -23,7 +23,7 @@ class Mantram extends CI_Controller
     public function store()
     {
         $this->mantram->create([
-            'deskripsi_mantram' => $this->input->post('deskripsi_mantram'),
+            'nama_mantram' => $this->input->post('nama_mantram'),
             'bait_mantram' => $this->input->post('bait_mantram'),
             'kategori' => $this->input->post('kategori'),
             'konten' => $this->input->post('konten'),
@@ -35,23 +35,11 @@ class Mantram extends CI_Controller
     public function update($id)
     {
         $data = $this->mantram->find($id, 'id_mantram');
-        $image = $data->gambar;
-
-        $this->load->library('upload', [
-            'encrypt_name' => true,
-            'upload_path' => './uploads/',
-            'allowed_types' => 'gif|jpg|png|jpeg'
-        ]);
-
-        if ($this->upload->do_upload('photo')) {
-            $image = $this->upload->data()['file_name'];
-        }
 
         $this->mantram->update($id, [
             'nama_mantram' => $this->input->post('nama_mantram'),
-            'deskripsi_mantram' => $this->input->post('deskripsi_mantram'),
+            'bait_mantram' => $this->input->post('bait_mantram'),
             'kategori' => $this->input->post('kategori'),
-            'gambar' => $image,
             'konten' => $this->input->post('konten'),
         ], 'id_mantram');
 

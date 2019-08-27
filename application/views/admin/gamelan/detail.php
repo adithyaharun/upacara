@@ -17,7 +17,7 @@
                     <?php if ($data->golongan !== null) : ?>
                     <tr>
                         <td width="150"><strong>Golongan</strong></td>
-                        <td><?= $data->golongan; ?></td>
+                        <td><?= ucwords($data->golongan); ?></td>
                     </tr>
                     <?php endif; ?>
                     <?php if ($data->golongan !== null) : ?>
