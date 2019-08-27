@@ -43,34 +43,34 @@
         <hr>
         <div class="panel-group" id="accordion">
             <?php if (!$isDetail) : ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFive">
-                        <a style="text-decoration: none; color: #232323;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                            Prosesi
-                        </a>
-                    </div>
-                    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
-                        <div class="panel-body">
-                            <div class="row">
-                                <?php foreach ($data->prosesi as $prosesi) : ?>
-                                    <div class="col-lg-2">
-                                        <div class="panel panel-default" style="border: 1px solid #efeef4">
-                                            <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
-                                            <div class="panel-body">
-                                                <p><?= $prosesi->prosesi_upacara ?></p>
-                                                <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
-                                                <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
-                                            </div>
-                                        </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <a style="text-decoration: none; color: #232323;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                        Prosesi
+                    </a>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->prosesi as $prosesi) : ?>
+                            <div class="col-lg-2">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                    <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                    <div class="panel-body">
+                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
+                                        <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                     </div>
-                                <?php endforeach; ?>
-                                <div class="col-lg-2">
-                                    <a class="card" data-toggle="modal" href="#detail-modal" data-type="prosesi"><i class="fa fa-plus fa-4x"></i></a>
                                 </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="prosesi"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <?php endif; ?>
             <div class="panel panel-primary">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -82,12 +82,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->tari as $tari) : ?>
-                                <div class="col-lg-2">
-                                    <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                        <div class="card-body"><?= $tari->nama_tari ?></div>
-                                        <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                                    </div>
+                            <div class="col-lg-2">
+                                <div class="card" style="background-image: url(<?= $tari->gambar ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                                    <div class="card-body"><?= $tari->nama_tari ?></div>
+                                    <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                                 </div>
+                            </div>
                             <?php endforeach; ?>
                             <div class="col-lg-2">
                                 <a class="card" data-toggle="modal" href="#detail-modal" data-type="tari"><i class="fa fa-plus fa-4x"></i></a>
@@ -106,12 +106,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->gamelan as $gamelan) : ?>
-                                <div class="col-lg-2">
-                                    <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
-                                        <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
-                                        <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                                    </div>
+                            <div class="col-lg-2">
+                                <div class="card" style="background-image: url(<?= $gamelan->gambar ? base_url('/uploads/' . $gamelan->gambar) : base_url('/assets/images/placeholder.png') ?>)">
+                                    <div class="card-body"><?= $gamelan->nama_gamelan ?></div>
+                                    <a data-id="<?= $gamelan->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                                 </div>
+                            </div>
                             <?php endforeach; ?>
                             <div class="col-lg-2">
                                 <a class="card" data-toggle="modal" href="#detail-modal" data-type="gamelan"><i class="fa fa-plus fa-4x"></i></a>
@@ -130,15 +130,39 @@
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->kidung as $kidung) : ?>
-                                <div class="col-lg-2">
-                                    <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
-                                        <div class="card-body"><?= $kidung->nama_kidung ?></div>
-                                        <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                                    </div>
+                            <div class="col-lg-2">
+                                <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                                    <div class="card-body"><?= $kidung->nama_kidung ?></div>
+                                    <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                                 </div>
+                            </div>
                             <?php endforeach; ?>
                             <div class="col-lg-2">
                                 <a class="card" data-toggle="modal" href="#detail-modal" data-type="kidung"><i class="fa fa-plus fa-4x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background: #ab47bc" role="tab" id="headingSix">
+                    <a style="text-decoration: none; color: #ffffff;" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                        Tabuh
+                    </a>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                    <div class="panel-body">
+                        <div class="row">
+                            <?php foreach ($data->tabuh as $tabuh) : ?>
+                            <div class="col-lg-2">
+                                <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                                    <div class="card-body"><?= $tabuh->nama_tabuh ?></div>
+                                    <a data-id="<?= $tabuh->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <div class="col-lg-2">
+                                <a class="card" data-toggle="modal" href="#detail-modal" data-type="tabuh"><i class="fa fa-plus fa-4x"></i></a>
                             </div>
                         </div>
                     </div>
@@ -154,12 +178,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <?php foreach ($data->mantram as $mantram) : ?>
-                                <div class="col-lg-2">
-                                    <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
-                                        <div class="card-body"><?= $mantram->nama_mantram ?></div>
-                                        <a data-id="<?= $mantram->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
-                                    </div>
+                            <div class="col-lg-2">
+                                <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                                    <div class="card-body"><?= $mantram->nama_mantram ?></div>
+                                    <a data-id="<?= $mantram->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                                 </div>
+                            </div>
                             <?php endforeach; ?>
                             <div class="col-lg-2">
                                 <a class="card" data-toggle="modal" href="#detail-modal" data-type="mantram"><i class="fa fa-plus fa-4x"></i></a>
@@ -173,19 +197,23 @@
     <?php $this->load->view('admin/layouts/footer'); ?>
     <script>
         let $detailModal = $("#detail-modal");
+        let idProsesi = "<?= $data->id_prosesi_upacara ?>";
         let baseUrl = $('meta[name="base_url"]').attr('content');
 
         $detailModal.on("show.bs.modal", function(e) {
             let type = $(e.relatedTarget).data("type");
 
             $.ajax({
-                url: `<?= base_url('admin/') ?>${type}/json`
+                url: `<?= base_url('admin/') ?>${type}/json${type == 'tabuh' ? '?id_prosesi=' + idProsesi : ''}`
             }).then(function(response) {
                 let $input = $('[name="detail"]');
+                let data = Array.from(new Set(response.map(JSON.stringify))).map(JSON.parse);
+
+                console.log(data);
 
                 $input.html(`<option value>Pilih ${type}...</option>`);
 
-                response.forEach((item, index) => {
+                data.forEach((item, index) => {
                     if (type === 'prosesi') {
                         $input.append(`<option value="${item['id_prosesi_upacara']}">${item['prosesi_upacara']}</option>`);
                     } else {

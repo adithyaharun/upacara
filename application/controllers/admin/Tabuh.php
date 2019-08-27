@@ -6,6 +6,8 @@ class Tabuh extends CI_Controller
         parent::__construct();
         $this->auth->check();
         $this->load->model('tabuh_model', 'tabuh');
+        $this->load->model('gamelan_detail_model', 'gamelan_detail');
+        $this->load->model('prosesi_detail_model', 'prosesi_detail');
     }
 
     public function index()
@@ -89,7 +91,24 @@ class Tabuh extends CI_Controller
 
     public function json()
     {
-        $data = $this->tabuh->get();
+        $data = [];
+
+        if ($this->input->get('id_prosesi') != null) {
+            $gamelan = $this->prosesi_detail->where(['id_prosesi' => $this->input->get('id_prosesi'), 'type' => 'gamelan'])->get();
+
+            foreach ($gamelan as $g) {
+                $arrays = $this->gamelan_detail->select('tb_tabuh.*')
+                    ->join('tb_tabuh', 'tb_tabuh.id_tabuh', '=', 'tb_gamelan_detail.id_tabuh')
+                    ->where('id_gamelan', $g->id_item)
+                    ->get();
+
+                foreach ($arrays as $a) {
+                    $data[] = $a;
+                }
+            }
+        } else {
+            $data = $this->tabuh->get();
+        }
 
         $this->output
             ->set_content_type('application/json')
