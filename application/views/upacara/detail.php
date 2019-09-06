@@ -13,8 +13,10 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-8">
-                <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder-landscape.jpg') ?>" width="100%" class="mb-3" /><br>
-                <div><?= $data->deskripsi ?></div>
+                <div>
+                    <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder-landscape.jpg') ?>" width="240" class="mb-3 mr-3" style="float: left" />
+                    <?= $data->deskripsi ?>
+                </div>
                 <div class="mb-3"><?= $data->konten ?></div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item mr-1">
