@@ -94,6 +94,7 @@ class Upacara extends CI_Controller
         $this->upacara->create([
             'nama_upacara' => $this->input->post('nama_upacara'),
             'deskripsi' => $this->input->post('deskripsi'),
+            'konten' => $this->input->post('konten'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'gambar' => $image,
         ]);
@@ -119,6 +120,7 @@ class Upacara extends CI_Controller
         $this->upacara->update($id, [
             'nama_upacara' => $this->input->post('nama_upacara'),
             'deskripsi' => $this->input->post('deskripsi'),
+            'konten' => $this->input->post('konten'),
             'id_yadnya' => $this->input->post('id_yadnya'),
             'gambar' => $image,
         ], 'id_upacara');
