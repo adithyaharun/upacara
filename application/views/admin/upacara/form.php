@@ -25,6 +25,10 @@
                                 <input type="text" name="nama_upacara" class="form-control" value="<?= isset($data) ? $data->nama_upacara : '' ?>" required />
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Konten (Audio / Video)</label>
+                                <textarea name="konten" id="konten" required class="form-control" rows="5"><?= isset($data) ? $data->konten : '' ?></textarea>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
                                 <textarea name="deskripsi" id="deskripsi" required class="form-control"><?= isset($data) ? $data->deskripsi : '' ?></textarea>
                             </div>
