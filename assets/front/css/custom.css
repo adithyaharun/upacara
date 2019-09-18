@@ -121,3 +121,35 @@ body {
 .swiper-container:hover .swiper-button-prev {
     left: 16px;
 }
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    padding-left: 10px;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 11px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 24px 0;
+    padding-left: 24px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    z-index: 400;
+}

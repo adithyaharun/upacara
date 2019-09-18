@@ -52,7 +52,7 @@ class Tari extends CI_Controller
             'id_tabuh' => $this->input->post('id_tabuh') == 0 ? null : $this->input->post('id_tabuh'),
         ]);
 
-        redirect(base_url('tari'));
+        redirect(base_url('admin/tari'));
     }
 
     public function update($id)
@@ -82,7 +82,7 @@ class Tari extends CI_Controller
             'id_tabuh' => $this->input->post('id_tabuh') == 0 ? null : $this->input->post('id_tabuh'),
         ], 'id_tari');
 
-        redirect(base_url('tari/show/' . $id));
+        redirect(base_url('admin/tari'));
     }
 
     public function edit($id)
