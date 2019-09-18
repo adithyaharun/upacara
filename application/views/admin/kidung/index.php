@@ -31,7 +31,6 @@
                             <tr>
                                 <th width="80">No.</th>
                                 <th>Nama Kidung</th>
-                                <th width="150">Golongan</th>
                                 <th width="250"></th>
                             </tr>
                         </thead>
