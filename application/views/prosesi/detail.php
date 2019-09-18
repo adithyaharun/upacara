@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('layouts/head', ['title' => $data->nama_upacara]); ?>
+<?php $this->load->view('layouts/head', ['title' => $data->prosesi_upacara]); ?>
 
 <body>
     <?php $this->load->view('layouts/navigation'); ?>
     <div class="hero" style="background-image: url(<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder-wide.jpg') ?>)">
         <div class="container">
-            <h1 class="mb-3"><?= $data->nama_upacara ?></h1>
+            <h1 class="mb-3"><?= $data->prosesi_upacara ?></h1>
         </div>
     </div>
 
@@ -17,7 +17,6 @@
                     <img src="<?= $data->gambar ? base_url('uploads/' . $data->gambar) : base_url('assets/images/placeholder-landscape.jpg') ?>" width="240" class="mb-3 mr-3" style="float: left" />
                     <?= $data->deskripsi ?>
                 </div>
-                <div class="mb-3"><?= $data->konten ?></div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <?php if (count($data->tari) > 0) : ?>
                         <li class="nav-item mr-1">
@@ -81,7 +80,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="mb-3">Prosesi Upacara</h4>
+                <h4 class="mb-3">Prosesi</h4>
                 <?php foreach ($data->prosesi as $index => $prosesi) : ?>
                     <div class="card mb-3">
                         <div class="card-body" id="heading-<?= $index + 1 ?>">

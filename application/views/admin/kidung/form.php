@@ -24,8 +24,8 @@
                                 <input type="text" name="nama_kidung" class="form-control" value="<?= isset($data) ? $data->nama_kidung : '' ?>" required />
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
-                                <textarea rows="3" name="deskripsi_kidung" class="form-control" required><?= isset($data) ? $data->deskripsi_kidung : '' ?></textarea>
+                                <label class="control-label">Konten <span class="text-danger">*</span></label>
+                                <textarea rows="3" name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -37,8 +37,8 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label class="control-label">Konten <span class="text-danger">*</span></label>
-                        <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
+                        <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
+                        <textarea name="deskripsi_kidung" id="deskripsi_kidung" required class="form-control"><?= isset($data) ? $data->deskripsi_kidung : '' ?></textarea>
                     </div>
                 </div>
                 <div class="panel-footer">
