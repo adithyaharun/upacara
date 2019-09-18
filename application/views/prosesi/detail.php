@@ -81,13 +81,13 @@
             </div>
             <div class="col-lg-4">
                 <h4 class="mb-3">Prosesi</h4>
-                <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                    <div class="card mb-3">
-                        <div class="card-body" id="heading-<?= $index + 1 ?>">
+                <ul class="timeline">
+                    <?php foreach ($data->prosesi as $index => $prosesi) : ?>
+                        <li>
                             <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>
