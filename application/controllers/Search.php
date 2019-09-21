@@ -13,6 +13,7 @@ class Search extends CI_Controller
         $this->load->model('gamelan_model', 'gamelan');
         $this->load->model('kidung_model', 'kidung');
         $this->load->model('tabuh_model', 'tabuh');
+        $this->load->model('mantram_model', 'mantram');
     }
 
     public function index()
@@ -23,6 +24,7 @@ class Search extends CI_Controller
             'gamelan' => $this->gamelan->where('nama_gamelan LIKE', "%{$this->input->get('query')}%")->get(),
             'kidung' => $this->kidung->where('nama_kidung LIKE', "%{$this->input->get('query')}%")->get(),
             'tabuh' => $this->tabuh->where('nama_tabuh LIKE', "%{$this->input->get('query')}%")->get(),
+            'mantram' => $this->mantram->where('nama_mantram LIKE', "%{$this->input->get('query')}%")->get(),
         ];
 
         $this->load->view('search/index', $values);

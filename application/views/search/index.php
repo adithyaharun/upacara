@@ -40,6 +40,11 @@
                     <a class="nav-link" data-toggle="pill" href="#tabuh">Tabuh <span class="badge badge-light ml-2"><?= count($tabuh); ?></span></a>
                 </li>
             <?php endif; ?>
+            <?php if (count($mantram) > 0) : ?>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" data-toggle="pill" href="#mantram">Mantram <span class="badge badge-light ml-2"><?= count($mantram); ?></span></a>
+                </li>
+            <?php endif; ?>
         </ul>
         <div class="tab-content mt-3">
             <?php if (count($upacara) > 0) : ?>
@@ -130,6 +135,24 @@
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
+            <?php if (count($mantram) > 0) : ?>
+                <div class="tab-pane fade" id="mantram" role="tabpanel">
+                    <?php foreach ($mantram as $m) : ?>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <img src="<?= base_url($g->gambar == null ? 'assets/images/placeholder-landscape.jpg' : 'uploads/' . $g->gambar) ?>" width="100%" />
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="card-title"><a href="<?= base_url('mantram/show/' . $m->id_mantram); ?>"><?= highlight_phrase($m->nama_mantram, $this->input->get('query'), '<span style="text-decoration: underline">', '</span>'); ?></a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <?php if (
@@ -137,7 +160,8 @@
             count($tari) == 0 &&
             count($gamelan) == 0 &&
             count($kidung) == 0 &&
-            count($tabuh) == 0
+            count($tabuh) == 0 &&
+            count($mantram) == 0
         ) : ?>
             <div class="jumbotron text-center" style="border-radius: 16px">
                 <div class="container">

@@ -59,7 +59,7 @@
         <hr />
         <h4>Bait Kidung</h4>
         <blockquote class="custom-blockquote">
-            <?= $data->bait_kidung; ?>
+            <?= nl2br($data->bait_kidung); ?>
         </blockquote>
         <hr />
         <?= $data->konten; ?>
@@ -67,4 +67,4 @@
     <?php $this->load->view('layouts/footer'); ?>
 </body>
 
-</ html>
+</html>
