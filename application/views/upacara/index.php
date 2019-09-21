@@ -14,7 +14,7 @@
         </div>
         <?php endif; ?>
         <?php foreach ($data as $key => $value) : ?>
-        <div class="card">
+        <div class="card mb-3">
             <div class="row">
                 <div class="col-lg-3">
                     <img src="<?= $value->gambar ? base_url('uploads/' . $value->gambar) : base_url('assets/images/placeholder.png') ?>" class="card-img-top" alt="...">

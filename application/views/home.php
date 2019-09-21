@@ -16,7 +16,7 @@
             </div>
         </form>
         <!-- Slider main container -->
-        <div class="swiper-container">
+        <div class="swiper-container" id="swiper-menu">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->

@@ -45,7 +45,7 @@ body {
     z-index: 0;
 }
 
-.swiper-container {
+#swiper-menu {
     width: 900px;
     margin: auto;
     height: 282px;
@@ -90,7 +90,7 @@ body {
     color: #fff;
 }
 
-.swiper-button-next, .swiper-button-prev {
+#swiper-menu .swiper-button-next, #swiper-menu .swiper-button-prev {
     position: absolute;
     top: 50%;
     width: 27px;
@@ -106,19 +106,19 @@ body {
     transition: all 250ms;
 }
 
-.swiper-button-next {
+#swiper-menu .swiper-button-next {
     right: -48px;
 }
 
-.swiper-button-prev {
+#swiper-menu .swiper-button-prev {
     left: -48px;
 }
 
-.swiper-container:hover .swiper-button-next {
+#swiper-menu:hover .swiper-button-next {
     right: 16px;
 }
 
-.swiper-container:hover .swiper-button-prev {
+#swiper-menu:hover .swiper-button-prev {
     left: 16px;
 }
 

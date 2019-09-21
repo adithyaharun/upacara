@@ -1,4 +1,4 @@
-var mySwiper = new Swiper('.swiper-container', {
+var mySwiper = new Swiper('#swiper-menu', {
   slidesPerView: 2,
   loop: true,
   spaceBetween: 30,

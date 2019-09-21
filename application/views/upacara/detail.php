@@ -70,7 +70,7 @@
                                 <?php foreach ($data->kidung as $kidung) : ?>
                                     <div class="col-4 mb-3">
                                         <a class="card" href="<?= base_url('kidung/show/' . $kidung->id_kidung) ?>">
-                                            <img src="<?= base_url('/assets/images/placeholder.png') ?>" width="100%" />
+                                            <img src="<?= base_url('/assets/images/note.png') ?>" width="100%" />
                                             <div class="card-body"><?= $kidung->nama_kidung ?></div>
                                         </a>
                                     </div>
