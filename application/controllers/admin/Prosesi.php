@@ -163,7 +163,7 @@ class Prosesi extends CI_Controller
 
     public function delete($id)
     {
-        $this->prosesi->where(['id_prosesi' => $id])->delete();
+        $this->prosesi->where(['id_prosesi_upacara' => $id])->delete();
 
         redirect(base_url('admin/prosesi'));
     }
