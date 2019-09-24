@@ -27,6 +27,10 @@
                                 <label class="control-label">Video/Audio <span class="text-danger">*</span></label>
                                 <textarea name="konten" id="konten" required class="form-control"><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label">Deskripsi <span class="text-danger">*</span></label>
+                                <textarea rows="" type="text" name="deskripsi" class="form-control" required><?= isset($data) ? $data->deskripsi : '' ?></textarea>
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -47,6 +51,10 @@
     </div>
     <!-- Footer -->
     <?php $this->load->view('admin/layouts/footer'); ?>
+    <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
+    <script>
+        CKEDITOR.replace('deskripsi');
+    </script>
 </body>
 
 </html>
