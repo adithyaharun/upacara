@@ -41,7 +41,7 @@
                                         <?= $index + 1 ?>
                                     </td>
                                     <td>
-                                        <?= $value->nama_kidung ?>
+                                        <a href="<?= base_url('admin/kidung/show/' . $value->id_kidung) ?>"><?= $value->nama_kidung ?></a>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('admin/kidung/edit/' . $value->id_kidung); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>

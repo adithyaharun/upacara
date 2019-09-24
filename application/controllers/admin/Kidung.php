@@ -51,6 +51,13 @@ class Kidung extends CI_Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $this->load->view('admin/kidung/detail', [
+            'data' => $this->kidung->find($id, 'id_kidung')
+        ]);
+    }
+
     public function delete($id)
     {
         $this->kidung->where(['id_kidung' => $id])->delete();
