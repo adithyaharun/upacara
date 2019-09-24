@@ -36,8 +36,8 @@
                     <?php endif; ?>
                 </ul>
                 <div class="tab-content p-3 border-bottom border-left border-right">
-                    <?php if (count($data->tari) > 0) : ?>
-                        <div id="tari" class="tab-pane fade show active">
+                    <div id="tari" class="tab-pane fade show active">
+                        <?php if (count($data->tari) > 0) : ?>
                             <div class="row">
                                 <?php foreach ($data->tari as $tari) : ?>
                                     <div class="col-4 mb-3">
@@ -48,10 +48,12 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (count($data->gamelan) > 0) : ?>
-                        <div id="gamelan" class="tab-pane fade">
+                        <?php else : ?>
+                            <div class="text-center"><em>Tidak ada data.</em></div>
+                        <?php endif; ?>
+                    </div>
+                    <div id="gamelan" class="tab-pane fade">
+                        <?php if (count($data->gamelan) > 0) : ?>
                             <div class="row">
                                 <?php foreach ($data->gamelan as $gamelan) : ?>
                                     <div class="col-4 mb-3">
@@ -62,10 +64,12 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (count($data->kidung) > 0) : ?>
-                        <div id="kidung" class="tab-pane fade">
+                        <?php else : ?>
+                            <div class="text-center"><em>Tidak ada data.</em></div>
+                        <?php endif; ?>
+                    </div>
+                    <div id="kidung" class="tab-pane fade">
+                        <?php if (count($data->kidung) > 0) : ?>
                             <div class="row">
                                 <?php foreach ($data->kidung as $kidung) : ?>
                                     <div class="col-4 mb-3">
@@ -76,8 +80,10 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                        </div>
-                    <?php endif; ?>
+                        <?php else : ?>
+                            <div class="text-center"><em>Tidak ada data.</em></div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">

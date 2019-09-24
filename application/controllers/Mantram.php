@@ -7,6 +7,14 @@ class Mantram extends CI_Controller
         $this->load->model('mantram_model', 'mantram');
     }
 
+    public function index()
+    {
+        $values = [];
+        $values['data'] = $this->mantram->get();
+
+        $this->load->view('mantram/index', $values);
+    }
+
     public function show($id)
     {
         $data = $this->mantram->find($id, 'id_mantram');

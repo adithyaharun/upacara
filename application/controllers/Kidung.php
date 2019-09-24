@@ -7,6 +7,14 @@ class Kidung extends CI_Controller
         $this->load->model('kidung_model', 'kidung');
     }
 
+    public function index()
+    {
+        $values = [];
+        $values['data'] = $this->kidung->get();
+
+        $this->load->view('kidung/index', $values);
+    }
+
     public function show($id)
     {
         $data = $this->kidung->find($id, 'id_kidung');

@@ -7,6 +7,14 @@ class Gamelan extends CI_Controller
         $this->load->model('gamelan_model', 'gamelan');
     }
 
+    public function index()
+    {
+        $values = [];
+        $values['data'] = $this->gamelan->get();
+
+        $this->load->view('gamelan/index', $values);
+    }
+
     public function show($id)
     {
         $data = $this->gamelan->find($id, 'id_gamelan');

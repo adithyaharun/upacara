@@ -9,6 +9,14 @@ class Tari extends CI_Controller
         $this->load->model('prosesi_detail_model', 'prosesi_detail');
     }
 
+    public function index()
+    {
+        $values = [];
+        $values['data'] = $this->tari->get();
+
+        $this->load->view('tari/index', $values);
+    }
+
     public function show($id)
     {
         $data = $this->tari->find($id, 'id_tari');
