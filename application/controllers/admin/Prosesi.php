@@ -185,6 +185,17 @@ class Prosesi extends CI_Controller
 
     public function add_detail($id)
     {
+        $checkDuplicate = $this->prosesi_detail->where([
+            'type' => $this->input->post('type'),
+            'id_item' => $this->input->post('detail'),
+            'id_upacara' => $id,
+        ])->get();
+
+        if (count($checkDuplicate) > 0) {
+            $this->session->set_flashdata('error', ucwords($this->input->post('type')) . " tersebut sudah ada dalam prosesi ini.");
+            redirect(base_url('admin/upacara/show/' . $id));
+        }
+
         $this->prosesi_detail->create([
             'type' => $this->input->post('type'),
             'id_item' => $this->input->post('detail'),
