@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html class="with-background">
 <?php $this->load->view('layouts/head', ['title' => $yadnya->nama_yadnya]); ?>
 
 <body>
     <?php $this->load->view('layouts/navigation'); ?>
 
-    <div class="container pt-5">
+    <div class="container my-5 py-5 rounded shadow-lg bg-white">
         <h1 class="text-center mb-5"><?= $yadnya->nama_yadnya ?></h1>
         <?php if (count($data) === 0) : ?>
             <div class="text-center">
