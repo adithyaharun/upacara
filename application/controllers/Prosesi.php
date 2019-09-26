@@ -88,6 +88,20 @@ class Prosesi extends CI_Controller
                 'type' => 'kidung'
             ])
             ->get();
+        $data->tabuh = $this->prosesi_detail->select('tb_tabuh.*')
+            ->join('tb_tabuh', 'tb_prosesi_detail.id_item', '=', 'tb_tabuh.id_tabuh')
+            ->where([
+                'tb_prosesi_detail.id_detail' => $id,
+                'type' => 'tabuh'
+            ])
+            ->get();
+        $data->mantram = $this->prosesi_detail->select('tb_mantram.*')
+            ->join('tb_mantram', 'tb_prosesi_detail.id_item', '=', 'tb_mantram.id_mantram')
+            ->where([
+                'tb_prosesi_detail.id_detail' => $id,
+                'type' => 'mantram'
+            ])
+            ->get();
 
         $this->load->view('prosesi/detail', [
             'data' => $data

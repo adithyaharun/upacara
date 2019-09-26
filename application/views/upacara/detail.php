@@ -9,7 +9,6 @@
             <h1 class="mb-3"><?= $data->nama_upacara ?></h1>
         </div>
     </div>
-
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-8">
@@ -19,21 +18,15 @@
                 </div>
                 <div class="mb-3"><?= $data->konten ?></div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <?php if (count($data->tari) > 0) : ?>
-                        <li class="nav-item mr-1">
-                            <a class="nav-link active" id="tari-tab" data-toggle="tab" href="#tari" role="tab" aria-controls="tari" aria-selected="true">Tari</a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (count($data->gamelan) > 0) : ?>
-                        <li class="nav-item mr-1">
-                            <a class="nav-link" id="gamelan-tab" data-toggle="tab" href="#gamelan" role="tab" aria-controls="gamelan" aria-selected="false">Gamelan</a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (count($data->kidung) > 0) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" id="kidung-tab" data-toggle="tab" href="#kidung" role="tab" aria-controls="kidung" aria-selected="false">Kidung</a>
-                        </li>
-                    <?php endif; ?>
+                    <li class="nav-item mr-1">
+                        <a class="nav-link active" id="tari-tab" data-toggle="tab" href="#tari" role="tab" aria-controls="tari" aria-selected="true">Tari</a>
+                    </li>
+                    <li class="nav-item mr-1">
+                        <a class="nav-link" id="gamelan-tab" data-toggle="tab" href="#gamelan" role="tab" aria-controls="gamelan" aria-selected="false">Gamelan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="kidung-tab" data-toggle="tab" href="#kidung" role="tab" aria-controls="kidung" aria-selected="false">Kidung</a>
+                    </li>
                 </ul>
                 <div class="tab-content p-3 border-bottom border-left border-right">
                     <div id="tari" class="tab-pane fade show active">
@@ -49,7 +42,7 @@
                                 <?php endforeach; ?>
                             </div>
                         <?php else : ?>
-                            <div class="text-center"><em>Tidak ada data.</em></div>
+                            <div class="text-center text-muted"><em>Tidak ada data.</em></div>
                         <?php endif; ?>
                     </div>
                     <div id="gamelan" class="tab-pane fade">
@@ -65,7 +58,7 @@
                                 <?php endforeach; ?>
                             </div>
                         <?php else : ?>
-                            <div class="text-center"><em>Tidak ada data.</em></div>
+                            <div class="text-center text-muted"><em>Tidak ada data.</em></div>
                         <?php endif; ?>
                     </div>
                     <div id="kidung" class="tab-pane fade">
@@ -81,7 +74,7 @@
                                 <?php endforeach; ?>
                             </div>
                         <?php else : ?>
-                            <div class="text-center"><em>Tidak ada data.</em></div>
+                            <div class="text-center text-muted"><em>Tidak ada data.</em></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -89,11 +82,15 @@
             <div class="col-lg-4">
                 <h4 class="mb-3">Prosesi Upacara</h4>
                 <ul class="timeline">
-                    <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                        <li>
-                            <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
-                        </li>
-                    <?php endforeach; ?>
+                    <?php if (count($data->prosesi) > 0) : ?>
+                        <?php foreach ($data->prosesi as $index => $prosesi) : ?>
+                            <li>
+                                <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <p class="text-muted">Tidak ada data.</p>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

@@ -87,6 +87,20 @@ class Upacara extends CI_Controller
                 'type' => 'kidung'
             ])
             ->get();
+        $data->tabuh = $this->upacara_detail->select('tb_tabuh.*')
+            ->join('tb_tabuh', 'tb_upacara_detail.id_item', '=', 'tb_tabuh.id_tabuh')
+            ->where([
+                'tb_upacara_detail.id_upacara' => $id,
+                'type' => 'tabuh'
+            ])
+            ->get();
+        $data->mantram = $this->upacara_detail->select('tb_mantram.*')
+            ->join('tb_mantram', 'tb_upacara_detail.id_item', '=', 'tb_mantram.id_mantram')
+            ->where([
+                'tb_upacara_detail.id_upacara' => $id,
+                'type' => 'mantram'
+            ])
+            ->get();
 
         $this->load->view('upacara/detail', [
             'data' => $data
