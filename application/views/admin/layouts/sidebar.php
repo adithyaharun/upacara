@@ -57,7 +57,7 @@
         </li>
         <li>
             <a href="<?= base_url('admin/mantram') ?>">
-                <i style="width: 24px" class="fa fa-archive"></i>
+                <i style="width: 24px" class="fa fa-music"></i>
                 <span>Mantram </span>
             </a>
         </li>
@@ -69,7 +69,7 @@
         </li>
         <li>
             <a href="<?= base_url('admin/tabuh') ?>">
-                <i style="width: 24px" class="fa fa-mortar-board"></i>
+                <i style="width: 24px" class="fa fa-music"></i>
                 <span>Tabuh</span>
             </a>
         </li>
