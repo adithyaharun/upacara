@@ -13,10 +13,9 @@
             </div>
             <div class="col-lg-9">
                 <h1 class="page-header" style="margin: 0"><?= $data->nama_tabuh ?></h1>
-                <table width="100%">
-                </table>
+                <p><?= $data->deskripsi ?></p>
                 <br>
-                <div style="width: 50%"><?= $data->konten ?></div>
+                <div><?= $data->konten ?></div>
             </div>
         </div>
     </div> <!-- Footer -->
