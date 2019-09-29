@@ -193,7 +193,7 @@ class Prosesi extends CI_Controller
 
         if (count($checkDuplicate) > 0) {
             $this->session->set_flashdata('error', ucwords($this->input->post('type')) . " tersebut sudah ada dalam prosesi ini.");
-            redirect(base_url('admin/prosesi/show/' . $id));
+            redirect(base_url('admin/prosesi/detail/' . $id));
         }
 
         $this->prosesi_detail->create([
