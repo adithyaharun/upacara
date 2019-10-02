@@ -59,7 +59,7 @@ class Upacara extends CI_Controller
     public function show($id)
     {
         $data = $this->upacara->find($id, 'id_upacara');
-        $data->prosesi = $this->upacara_detail->select('tb_prosesi_upacara.*')
+        $data->prosesi = $this->upacara_detail->select('tb_prosesi_upacara.*, tb_upacara_detail.kategori')
             ->join('tb_prosesi_upacara', 'tb_upacara_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')
             ->where([
                 'tb_upacara_detail.id_upacara' => $id,

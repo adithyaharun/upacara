@@ -3,7 +3,7 @@
 <?php $this->load->view('layouts/head', ['title' => 'Upacara']); ?>
 
 <body>
-    <?php $this->load->view('layouts/navigation'); ?>
+    <?php $this->load->view('layouts/navigation', ['hideSearch' => true]); ?>
 
     <div class="container py-5">
         <h1 class="text-center mb-5 text-white">E-UPACARA</h1>
