@@ -18,6 +18,7 @@
         </table>
         <br>
         <blockquote><?= str_replace('\r\n', "<br>", "{$data->bait_mantram}") ?></blockquote>
+        <div><?= $data->konten ?></div>
     </div> <!-- Footer -->
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
