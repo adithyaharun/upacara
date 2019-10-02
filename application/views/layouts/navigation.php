@@ -35,9 +35,12 @@
                     <a href="<?= base_url('mantram'); ?>" class="nav-link">Mantram</a>
                 </li>
             </ul>
-            <form class="form-inline ml-auto" action="<?= base_url('search') ?>">
-                <input class="form-control form-control-sm" type="search" name="query" value="<?= $this->input->get('query') ?>" placeholder="Cari sesuatu..." aria-label="Search">
-            </form>
+            <?php if (isset($hideSearch) && $hideSearch) : ?>
+            <?php else : ?>
+                <form class="form-inline ml-auto" action="<?= base_url('search') ?>">
+                    <input class="form-control form-control-sm" type="search" name="query" value="<?= $this->input->get('query') ?>" placeholder="Cari sesuatu..." aria-label="Search">
+                </form>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
