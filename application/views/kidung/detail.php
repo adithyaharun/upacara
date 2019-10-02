@@ -57,12 +57,12 @@
             </div>
         </div>
         <hr />
+        <?= $data->konten; ?>
+        <hr />
         <h4>Bait Kidung</h4>
         <blockquote class="custom-blockquote">
             <?= nl2br($data->bait_kidung); ?>
         </blockquote>
-        <hr />
-        <?= $data->konten; ?>
     </div>
     <?php $this->load->view('layouts/footer'); ?>
 </body>

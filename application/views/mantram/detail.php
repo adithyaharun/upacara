@@ -56,12 +56,12 @@
             </div>
         </div>
         <hr />
+        <?= $data->konten; ?>
+        <hr />
         <h4>Bait Mantram</h4>
         <blockquote class="custom-blockquote">
             <?= str_replace(array('\r\n', '\r', '\n'), '<br />', $data->bait_mantram); ?>
         </blockquote>
-        <hr />
-        <?= $data->konten; ?>
     </div>
     <?php $this->load->view('layouts/footer'); ?>
 </body>
