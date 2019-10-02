@@ -11,6 +11,7 @@
         <div><?= $data->deskripsi_kidung ?></div>
         <br>
         <blockquote><?= str_replace('\r\n', "<br>", "{$data->bait_kidung}") ?></blockquote>
+        <div><?= $data->konten ?></div>
     </div> <!-- Footer -->
     <?php $this->load->view('admin/layouts/footer'); ?>
 </body>
