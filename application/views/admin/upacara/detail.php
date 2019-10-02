@@ -192,7 +192,7 @@
                 <div class="row" style="margin-bottom: 16px">
                     <?php foreach ($data->kidung as $kidung) : ?>
                     <div class="col-lg-4" style="margin-top: 16px">
-                        <div class="card" style="background-image: url(<?= base_url('/assets/images/placeholder.png') ?>)">
+                        <div class="card" style="background-image: url(<?= base_url('/assets/images/note.png') ?>)">
                             <div class="card-body"><?= $kidung->nama_kidung ?></div>
                             <a data-id="<?= $kidung->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                         </div>
