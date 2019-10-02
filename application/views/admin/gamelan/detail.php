@@ -34,7 +34,7 @@
                 </table>
                 <br>
                 <div><?= $data->deskripsi ?></div>
-                <div style="width: 50%"><?= $data->konten ?></div>
+                <div><?= $data->konten ?></div>
             </div>
         </div>
     </div> <!-- Footer -->
