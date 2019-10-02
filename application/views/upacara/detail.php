@@ -80,18 +80,40 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="mb-3">Prosesi Upacara</h4>
-                <ul class="timeline">
-                    <?php if (count($data->prosesi) > 0) : ?>
+                <?php if (count($data->prosesi) > 0) : ?>
+                    <h4 class="mb-3">Prosesi Awal</h4>
+                    <ul class="timeline mb-5">
                         <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                            <li>
-                                <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
-                            </li>
+                            <?php if ($prosesi->kategori == 'awal') : ?>
+                                <li>
+                                    <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
+                                </li>
+                            <?php endif; ?>
                         <?php endforeach; ?>
-                    <?php else : ?>
-                        <p class="text-muted">Tidak ada data.</p>
-                    <?php endif; ?>
-                </ul>
+                    </ul>
+                    <h4 class="mb-3">Prosesi Puncak</h4>
+                    <ul class="timeline mb-5">
+                        <?php foreach ($data->prosesi as $index => $prosesi) : ?>
+                            <?php if ($prosesi->kategori == 'puncak') : ?>
+                                <li>
+                                    <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                    <h4 class="mb-3">Prosesi Akhir</h4>
+                    <ul class="timeline">
+                        <?php foreach ($data->prosesi as $index => $prosesi) : ?>
+                            <?php if ($prosesi->kategori == 'akhir') : ?>
+                                <li>
+                                    <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <div class="text-muted"><em>Tidak ada prosesi.</em></div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
