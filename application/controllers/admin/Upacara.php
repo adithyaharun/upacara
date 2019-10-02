@@ -9,6 +9,7 @@ class Upacara extends CI_Controller
         $this->load->model('upacara_detail_model', 'upacara_detail');
         $this->load->model('yadnya_model', 'yadnya');
         $this->load->model('prosesi_model', 'prosesi');
+        $this->load->model('prosesi_detail_model', 'prosesi_detail');
         $this->load->model('tari_model', 'tari');
         $this->load->model('gamelan_model', 'gamelan');
         $this->load->model('kidung_model', 'kidung');
@@ -68,6 +69,39 @@ class Upacara extends CI_Controller
             ])
             ->get();
 
+        foreach ($data->prosesi as $index => $prosesi) {
+            $detail = $this->prosesi_detail
+                ->where('id_prosesi', $prosesi->id_prosesi_upacara)
+                ->first();
+
+            if ($detail === null) {
+                continue;
+            }
+
+            if ($detail->type == 'tari') {
+                $tari = $this->tari->where('id_tari', $detail->id_item)->first();
+                if ($tari !== null) {
+                    $tari->deletable = false;
+                    $data->tari[] = $tari;
+                }
+            }
+
+            if ($detail->type == 'gamelan') {
+                $gamelan = $this->gamelan->where('id_gamelan', $detail->id_item)->first();
+                if ($gamelan !== null) {
+                    $gamelan->deletable = false;
+                    $data->gamelan[] = $gamelan;
+                }
+            }
+
+            if ($detail->type == 'kidung') {
+                $kidung = $this->kidung->where('id_kidung', $detail->id_item)->first();
+                if ($kidung !== null) {
+                    $kidung->deletable = false;
+                    $data->kidung[] = $kidung;
+                }
+            }
+        }
 
         // return $this->output
         //     ->set_content_type('application/json')
