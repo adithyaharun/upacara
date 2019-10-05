@@ -78,7 +78,7 @@
                             <?php foreach ($data->prosesi as $prosesi) : ?>
                             <?php if ($prosesi->kategori == 'awal') : ?>
                             <div class="col-lg-2">
-                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
                                         <p><?= $prosesi->prosesi_upacara ?></p>
@@ -105,7 +105,7 @@
                             <?php foreach ($data->prosesi as $prosesi) : ?>
                             <?php if ($prosesi->kategori == 'puncak') : ?>
                             <div class="col-lg-2">
-                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
                                         <p><?= $prosesi->prosesi_upacara ?></p>
@@ -132,7 +132,7 @@
                             <?php foreach ($data->prosesi as $prosesi) : ?>
                             <?php if ($prosesi->kategori == 'akhir') : ?>
                             <div class="col-lg-2">
-                                <div class="panel panel-default" style="border: 1px solid #efeef4">
+                                <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
                                         <p><?= $prosesi->prosesi_upacara ?></p>
