@@ -162,7 +162,7 @@
                     <div class="col-lg-4" style="margin-top: 16px">
                         <div class="card" style="background-image: url(<?= $tari->gambar !== null ? base_url('/uploads/' . $tari->gambar) : base_url('/assets/images/placeholder.png') ?>)">
                             <div class="card-body"><?= $tari->nama_tari ?></div>
-                            <?php if (isset($tari->deletable) && $tari->deletable) : ?>
+                            <?php if (!isset($tari->deletable)) : ?>
                                 <a data-id="<?= $tari->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
                             <?php endif; ?>
                         </div>
