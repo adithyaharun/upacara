@@ -63,42 +63,42 @@ class Prosesi extends CI_Controller
         $data->prosesi = $this->prosesi_detail->select('tb_prosesi_upacara.*')
             ->join('tb_prosesi_upacara', 'tb_prosesi_detail.id_item', '=', 'tb_prosesi_upacara.id_prosesi_upacara')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'prosesi'
             ])
             ->get();
         $data->tari = $this->prosesi_detail->select('tb_tari.*')
             ->join('tb_tari', 'tb_prosesi_detail.id_item', '=', 'tb_tari.id_tari')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'tari'
             ])
             ->get();
         $data->gamelan = $this->prosesi_detail->select('tb_gamelan.*')
             ->join('tb_gamelan', 'tb_prosesi_detail.id_item', '=', 'tb_gamelan.id_gamelan')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'gamelan'
             ])
             ->get();
         $data->kidung = $this->prosesi_detail->select('tb_kidung.*')
             ->join('tb_kidung', 'tb_prosesi_detail.id_item', '=', 'tb_kidung.id_kidung')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'kidung'
             ])
             ->get();
         $data->tabuh = $this->prosesi_detail->select('tb_tabuh.*')
             ->join('tb_tabuh', 'tb_prosesi_detail.id_item', '=', 'tb_tabuh.id_tabuh')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'tabuh'
             ])
             ->get();
         $data->mantram = $this->prosesi_detail->select('tb_mantram.*')
             ->join('tb_mantram', 'tb_prosesi_detail.id_item', '=', 'tb_mantram.id_mantram')
             ->where([
-                'tb_prosesi_detail.id_detail' => $id,
+                'tb_prosesi_detail.id_prosesi' => $id,
                 'type' => 'mantram'
             ])
             ->get();
