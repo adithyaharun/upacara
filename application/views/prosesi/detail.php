@@ -119,34 +119,12 @@
             </div>
             <div class="col-lg-4">
                 <?php if (count($data->prosesi) > 0) : ?>
-                    <h4 class="mb-3">Prosesi Awal</h4>
+                    <h4 class="mb-3">Detail Prosesi </h4>
                     <ul class="timeline mb-5">
                         <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                            <?php if ($prosesi->kategori == 'awal') : ?>
                                 <li>
                                     <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
                                 </li>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </ul>
-                    <h4 class="mb-3">Prosesi Puncak</h4>
-                    <ul class="timeline mb-5">
-                        <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                            <?php if ($prosesi->kategori == 'puncak') : ?>
-                                <li>
-                                    <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
-                                </li>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </ul>
-                    <h4 class="mb-3">Prosesi Akhir</h4>
-                    <ul class="timeline">
-                        <?php foreach ($data->prosesi as $index => $prosesi) : ?>
-                            <?php if ($prosesi->kategori == 'akhir') : ?>
-                                <li>
-                                    <a href="<?= base_url('prosesi/show/' . $prosesi->id_prosesi_upacara) ?>"><?= $prosesi->prosesi_upacara ?></a>
-                                </li>
-                            <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                 <?php else : ?>
