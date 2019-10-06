@@ -39,6 +39,7 @@ class Tabuh extends CI_Controller
             'nama_tabuh' => $this->input->post('nama_tabuh'),
             'gambar' => $image,
             'konten' => $this->input->post('konten'),
+            'deskripsi' => $this->input->post('deskripsi'),
         ]);
 
         redirect(base_url('admin/tabuh'));
@@ -63,6 +64,7 @@ class Tabuh extends CI_Controller
             'nama_tabuh' => $this->input->post('nama_tabuh'),
             'gambar' => $image,
             'konten' => $this->input->post('konten'),
+            'deskripsi' => $this->input->post('deskripsi'),
         ], 'id_tabuh');
 
         redirect(base_url('admin/tabuh'));
