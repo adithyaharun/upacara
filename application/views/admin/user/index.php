@@ -18,10 +18,22 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-2">
-                                <a href="<?= base_url('admin/user/create'); ?>" class="btn btn-warning">
+                            <div class="col-md-1">
+                                <a href="<?= base_url('admin/user/create'); ?>" class="btn btn-warning btn-block">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
+                            </div>
+                            <div class="col-md-4 col-md-offset-7">
+                                <form class="form" action="<?= current_url() ?>">
+                                    <div class="row">
+                                        <div class="col-lg-8" style="padding-right: 0px;">
+                                            <input type="text" class="form-control" value="<?= $this->input->get('q') ?>" style="height: inherit" placeholder="Pencarian..." name="q">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-search" style="margin-right: 8px"></i>Cari</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="col-md-10 text-right"></div>
                         </div>
@@ -63,6 +75,9 @@
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                </div>
+                <div class="text-center">
+                    <?= $pagination; ?>
                 </div>
             </div>
         </div>

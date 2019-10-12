@@ -10,10 +10,30 @@ class Tabuh extends CI_Controller
         $this->load->model('prosesi_detail_model', 'prosesi_detail');
     }
 
+    private $module = 'tabuh';
+
     public function index()
     {
-        $this->load->view('admin/tabuh/index', [
-            'data' => $this->tabuh->get()
+        $query = $this->{$this->module}->select('*');
+        $total = $query->count();
+
+        if ($this->input->get('q') !== null) {
+            $query->where('nama_tabuh LIKE', "%{$this->input->get('q')}%");
+        }
+
+        $query->limit(10)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 10);
+
+        $data = $query->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 10,
+        ]);
+
+        $this->load->view('admin/' . $this->module . '/index', [
+            'data' => $data,
+            'pagination' => $this->pagination->create_links()
         ]);
     }
 
