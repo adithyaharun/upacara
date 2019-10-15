@@ -20,7 +20,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <a href="<?= base_url('admin/upacara/create?yadnya=' . $yadnya->id_yadnya); ?>" class="btn btn-warning">
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
