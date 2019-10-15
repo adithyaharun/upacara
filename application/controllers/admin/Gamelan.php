@@ -10,16 +10,36 @@ class Gamelan extends CI_Controller
         $this->load->model('tabuh_model', 'tabuh');
     }
 
+    private $module = 'gamelan';
+
     public function index()
     {
-        $this->load->view('admin/gamelan/index', [
-            'data' => $this->gamelan->get()
+        $query = $this->{$this->module}->select('*');
+        $total = $query->count();
+
+        if ($this->input->get('q') !== null) {
+            $query->where('nama_gamelan LIKE', "%{$this->input->get('q')}%");
+        }
+
+        $query->limit(10)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 10);
+
+        $data = $query->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 10,
+        ]);
+
+        $this->load->view('admin/' . $this->module . '/index', [
+            'data' => $data,
+            'pagination' => $this->pagination->create_links()
         ]);
     }
 
     public function create()
     {
-        $this->load->view('admin/gamelan/form', [
+        $this->load->view('admin/' . $this->module . '/form', [
             'tabuh' => $this->tabuh->select('id_tabuh AS id, nama_tabuh AS text')->get()
         ]);
     }
@@ -52,7 +72,7 @@ class Gamelan extends CI_Controller
             ]);
         }
 
-        redirect(base_url('admin/gamelan'));
+        redirect(base_url('admin/' . $this->module . ''));
     }
 
     public function update($id)
@@ -86,12 +106,12 @@ class Gamelan extends CI_Controller
             ]);
         }
 
-        redirect(base_url('admin/gamelan'));
+        redirect(base_url('admin/' . $this->module . ''));
     }
 
     public function edit($id)
     {
-        $this->load->view('admin/gamelan/form', [
+        $this->load->view('admin/' . $this->module . '/form', [
             'data' => $this->gamelan->find($id, 'id_gamelan'),
             'tabuh' => $this->tabuh->select('id_tabuh AS id, nama_tabuh AS text')->get(),
             'gamelan_tabuh' => $this->gamelan_detail->where(['id_gamelan' => $id])->get()
@@ -100,7 +120,7 @@ class Gamelan extends CI_Controller
 
     public function show($id)
     {
-        $this->load->view('admin/gamelan/detail', [
+        $this->load->view('admin/' . $this->module . '/detail', [
             'data' => $this->gamelan->find($id, 'id_gamelan'),
             'gamelan_tabuh' => $this->gamelan_detail->select('tb_tabuh.*')->where(['id_gamelan' => $id])->join('tb_tabuh', 'tb_tabuh.id_tabuh', '=', 'tb_gamelan_detail.id_tabuh')->get()
         ]);

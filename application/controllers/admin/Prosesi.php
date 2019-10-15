@@ -14,10 +14,32 @@ class Prosesi extends CI_Controller
         $this->load->model('mantram_model', 'mantram');
     }
 
+    private $module = 'prosesi';
+
     public function index()
     {
-        $this->load->view('admin/prosesi/index', [
-            'data' => $this->prosesi->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_prosesi_upacara.id_yadnya', 'left')->get()
+        $query = $this->{$this->module}->select('*');
+        $total = $query->count();
+
+        if ($this->input->get('q') !== null) {
+            $query->where('nama_prosesi LIKE', "%{$this->input->get('q')}%");
+        }
+
+        $query->limit(10)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 10);
+
+        $data = $query
+            ->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', "tb_prosesi_upacara.id_yadnya", 'left')
+            ->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 10,
+        ]);
+
+        $this->load->view('admin/' . $this->module . '/index', [
+            'data' => $data,
+            'pagination' => $this->pagination->create_links()
         ]);
     }
 

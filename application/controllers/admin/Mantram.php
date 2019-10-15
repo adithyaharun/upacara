@@ -8,10 +8,30 @@ class Mantram extends CI_Controller
         $this->load->model('mantram_model', 'mantram');
     }
 
+    private $module = 'mantram';
+
     public function index()
     {
-        $this->load->view('admin/mantram/index', [
-            'data' => $this->mantram->get()
+        $query = $this->{$this->module}->select('*');
+        $total = $query->count();
+
+        if ($this->input->get('q') !== null) {
+            $query->where('nama_mantram LIKE', "%{$this->input->get('q')}%");
+        }
+
+        $query->limit(10)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 10);
+
+        $data = $query->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 10,
+        ]);
+
+        $this->load->view('admin/' . $this->module . '/index', [
+            'data' => $data,
+            'pagination' => $this->pagination->create_links()
         ]);
     }
 

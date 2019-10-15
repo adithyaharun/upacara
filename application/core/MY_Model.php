@@ -180,6 +180,14 @@ class MY_Model extends CI_Model
     }
 
     /**
+     * Count
+     */
+    public function count()
+    {
+        return $this->db->count_all($this->table);
+    }
+
+    /**
      * Error generator.
      */
     private function generateError()

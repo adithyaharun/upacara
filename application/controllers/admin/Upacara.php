@@ -15,18 +15,36 @@ class Upacara extends CI_Controller
         $this->load->model('kidung_model', 'kidung');
     }
 
+    private $module = 'upacara';
+
     public function index()
     {
-        $values = [];
+        if ($this->input->get('yadnya') === null) {
+            redirect(base_url('/admin'));
+        }
+        
+        $query = $this->{$this->module}->select('*')->where('id_yadnya', $this->input->get('yadnya'));
+        $total = $query->count();
 
-        if ($this->input->get('yadnya') !== null) {
-            $values['yadnya'] = $this->yadnya->find($this->input->get('yadnya'), 'id_yadnya');
-            $values['data'] = $this->upacara
-                ->where('id_yadnya', $this->input->get('yadnya'))
-                ->get();
+        if ($this->input->get('q') !== null) {
+            $query->where('nama_upacara LIKE', "%{$this->input->get('q')}%");
         }
 
-        $this->load->view('admin/upacara/index', $values);
+        $query->limit(10)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 10);
+
+        $data = $query->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 10,
+        ]);
+
+        $this->load->view('admin/' . $this->module . '/index', [
+            'data' => $data,
+            'yadnya' => $this->yadnya->find($this->input->get('yadnya'), 'id_yadnya'),
+            'pagination' => $this->pagination->create_links()
+        ]);
     }
 
     public function create()
