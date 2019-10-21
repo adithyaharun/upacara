@@ -57,7 +57,7 @@
                                         <a href="<?= base_url('admin/prosesi/detail/' . $value->id_prosesi_upacara) ?>"><?= $value->prosesi_upacara ?></a>
                                     </td>
                                     <td>
-                                        <?= $value->id_yadnya !== null ? $value->nama_yadnya : '-' ?>
+                                        <?= $value->id_yadnya !== null ? $value->nama_yadnya : 'Umum' ?>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('admin/prosesi/edit/' . $value->id_prosesi_upacara); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit" style="margin-right: 4px"></i>Edit</a>
