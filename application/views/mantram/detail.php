@@ -53,6 +53,13 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="mb-3"><?= $data->nama_mantram ?></h1>
+                <table width="100%" class="mb-3">
+                    <tr>
+                        <td width="150"><strong>Kategori</strong></td>
+                        <td><?= $data->kategori; ?></td>
+                    </tr>
+                </table>
+                <p><?= $data->makna ?></p>
             </div>
         </div>
         <hr />
