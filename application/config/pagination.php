@@ -4,6 +4,7 @@ $config['base_url'] = current_url();
 $config['query_string_segment'] = 'page';
 $config['page_query_string'] = true;
 $config['use_page_numbers'] = true;
+$config['reuse_query_string'] = true;
 $config['num_links'] = 4;
 $config['full_tag_open'] = '<ul class="pagination" style="margin: 0">';
 $config['full_tag_close'] = '</ul>';

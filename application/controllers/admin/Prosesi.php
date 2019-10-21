@@ -22,7 +22,7 @@ class Prosesi extends CI_Controller
         $total = $query->count();
 
         if ($this->input->get('q') !== null) {
-            $query->where('nama_prosesi LIKE', "%{$this->input->get('q')}%");
+            $query->where('prosesi_upacara LIKE', "%{$this->input->get('q')}%");
         }
 
         $query->limit(10)

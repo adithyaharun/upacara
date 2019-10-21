@@ -184,7 +184,15 @@ class MY_Model extends CI_Model
      */
     public function count()
     {
-        return $this->db->count_all($this->table);
+        return $this->db->count_all_results($this->table);
+    }
+
+    /**
+     * Count
+     */
+    public function num_rows()
+    {
+        return $this->db->num_rows();
     }
 
     /**
