@@ -15,29 +15,40 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <form class="form" action="<?= base_url('admin/mantram/' . (isset($data) ? 'update/' . $data->id_mantram : 'store')) ?>" method="POST" enctype="multipart/form-data">
                         <div class="panel-body">
-                            <div class="form-group">
-                                <label class="control-label">Nama Mantram <span class="text-danger">*</span></label>
-                                <input type="text" name="nama_mantram" class="form-control" required value="<?= isset($data) ? $data->nama_mantram : '' ?>" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Nama Mantram <span class="text-danger">*</span></label>
+                                        <input type="text" name="nama_mantram" class="form-control" required value="<?= isset($data) ? $data->nama_mantram : '' ?>" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Kategori <span class="text-danger">*</span></label>
+                                        <select type="text" name="kategori" required class="form-control">
+                                            <option value="ekajati" <?= isset($data) && $data->kategori == 'ekajati' ? 'selected' : '' ?>>Ekajati</option>
+                                            <option value="Dwijati" <?= isset($data) && $data->kategori == 'Dwijati' ? 'selected' : '' ?>>Dwijati</option>
+                                            <option value="umum" <?= isset($data) && $data->kategori == 'umum' ? 'selected' : '' ?>>Umum</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
+                                        <textarea name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Bait Mantram <span class="text-danger">*</span></label>
+                                        <textarea rows="7" type="text" name="bait_mantram" id="bait_mantram" class="form-control" required><?= isset($data) ? $data->bait_mantram : '' ?></textarea>
+                                    </div>
+                                </div>
                             </div>
+                            <hr>
                             <div class="form-group">
-                                <label class="control-label">Kategori <span class="text-danger">*</span></label>
-                                <select type="text" name="kategori" required class="form-control">
-                                    <option value="ekajati" <?= isset($data) && $data->kategori == 'ekajati' ? 'selected' : '' ?>>Ekajati</option>
-                                    <option value="Dwijati" <?= isset($data) && $data->kategori == 'Dwijati' ? 'selected' : '' ?>>Dwijati</option>
-                                    <option value="umum" <?= isset($data) && $data->kategori == 'umum' ? 'selected' : '' ?>>Umum</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
-                                <textarea name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Bait Mantram <span class="text-danger">*</span></label>
-                                <textarea rows="7" type="text" name="bait_mantram" id="bait_mantram" class="form-control" required><?= isset($data) ? $data->bait_mantram : '' ?></textarea>
+                                <label class="control-label">Makna <span class="text-danger">*</span></label>
+                                <textarea name="makna" id="makna" class="form-control" required><?= isset($data) ? $data->makna : '' ?></textarea>
                             </div>
                         </div>
                         <div class="panel-footer">
@@ -56,7 +67,7 @@
         let $photo = $('#photo'),
             $photoInput = $('#photo-input')
 
-        CKEDITOR.replace('bait_mantram');
+        CKEDITOR.replace('makna');
         $photoInput.on('change', function(e) {
             let file = e.target.files[0],
                 fileReader = new FileReader();

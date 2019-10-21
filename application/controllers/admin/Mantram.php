@@ -47,6 +47,7 @@ class Mantram extends CI_Controller
             'bait_mantram' => $this->input->post('bait_mantram'),
             'kategori' => $this->input->post('kategori'),
             'konten' => $this->input->post('konten'),
+            'makna' => $this->input->post('makna'),
         ]);
 
         redirect(base_url('admin/mantram'));
@@ -61,6 +62,7 @@ class Mantram extends CI_Controller
             'bait_mantram' => $this->input->post('bait_mantram'),
             'kategori' => $this->input->post('kategori'),
             'konten' => $this->input->post('konten'),
+            'makna' => $this->input->post('makna'),
         ], 'id_mantram');
 
         redirect(base_url('admin/mantram'));

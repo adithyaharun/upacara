@@ -17,6 +17,7 @@
             <?php endif; ?>
         </table>
         <br>
+        <div><?= $data->makna ?></div>
         <blockquote><?= str_replace('\r\n', "<br>", "{$data->bait_mantram}") ?></blockquote>
         <div><?= $data->konten ?></div>
     </div> <!-- Footer -->
