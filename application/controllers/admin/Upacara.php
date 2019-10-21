@@ -23,8 +23,9 @@ class Upacara extends CI_Controller
             redirect(base_url('/admin'));
         }
         
-        $query = $this->{$this->module}->select('*')->where('id_yadnya', $this->input->get('yadnya'));
-        $total = $query->count();
+        $query = $this->upacara
+            ->where('tb_upacara.id_yadnya', $this->input->get('yadnya'))
+            ->join('tb_yadnya', 'tb_yadnya.id_yadnya', '=', 'tb_upacara.id_yadnya');
 
         if ($this->input->get('q') !== null) {
             $query->where('nama_upacara LIKE', "%{$this->input->get('q')}%");
@@ -36,7 +37,7 @@ class Upacara extends CI_Controller
         $data = $query->get();
 
         $this->pagination->initialize([
-            'total_rows' => $total,
+            'total_rows' => $this->upacara->count(),
             'per_page' => 10,
         ]);
 

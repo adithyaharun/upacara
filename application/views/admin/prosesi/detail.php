@@ -157,7 +157,9 @@
                             <div class="col-lg-2">
                                 <div class="card" style="background-image: url(<?= base_url('/assets/images/note.png') ?>)">
                                     <div class="card-body"><?= $tabuh->nama_tabuh ?></div>
+                                    <?php if (isset($tabuh->deletable) && $tabuh->deletable) : ?>
                                     <a data-id="<?= $tabuh->id_detail ?>" class="btn btn-delete btn-sm btn-danger btn-card">Hapus</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <?php endforeach; ?>

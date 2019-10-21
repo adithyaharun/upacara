@@ -12,6 +12,7 @@ class Prosesi extends CI_Controller
         $this->load->model('gamelan_model', 'gamelan');
         $this->load->model('kidung_model', 'kidung');
         $this->load->model('mantram_model', 'mantram');
+        $this->load->model('tabuh_model', 'tabuh');
     }
 
     private $module = 'prosesi';
@@ -161,9 +162,20 @@ class Prosesi extends CI_Controller
             ])
             ->get();
 
+        if (count($data->tari) > 0) {
+            foreach ($data->tari as $key => $value) {
+                if ($value->id_tabuh !== null) {
+                    $tabuh = $this->tabuh->find($value->id_tabuh);
+                    $tabuh->deletable = false;
+
+                    $data->tabuh[] = $tabuh;
+                }
+            }
+        }
+
         // return $this->output
         //     ->set_content_type('application/json')
-        //     ->set_output(json_encode($data->tari));
+        //     ->set_output(json_encode($data->tabuh));
 
         $this->load->view('admin/prosesi/detail', [
             'data' => $data,

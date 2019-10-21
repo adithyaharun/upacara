@@ -35,6 +35,7 @@
                                     <option value="balih-balihan" <?= isset($data) && $data->fungsi_tari == 'balih-balihan' ? 'selected' : '' ?>>Balih-balihan</option>
                                 </select>
                             </div>
+                            <!--
                             <div class="form-group">
                                 <label class="control-label">Gamelan</label>
                                 <select type="text" name="id_gamelan" class="form-control">
@@ -53,6 +54,7 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            -->
                             <div class="form-group">
                                 <label class="control-label">Tabuh</label>
                                 <select type="text" name="id_tabuh" class="form-control">
