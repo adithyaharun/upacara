@@ -25,7 +25,7 @@
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
-                            <div class="col-md-4 col-md-offset-7">
+                            <div class="col-md-4 col-md-offset-6">
                                 <form class="form" action="<?= current_url() ?>">
                                     <input type="hidden" name="yadnya" value="<?= $this->input->get('yadnya') ?>" />
                                     <div class="row">

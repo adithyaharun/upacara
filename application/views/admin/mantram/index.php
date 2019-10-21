@@ -23,7 +23,7 @@
                                     <i class="fa fa-plus" style="margin-right: 8px"></i>Tambah
                                 </a>
                             </div>
-                            <div class="col-md-4 col-md-offset-7">
+                            <div class="col-md-4 col-md-offset-6">
                                 <form class="form" action="<?= current_url() ?>">
                                     <div class="row">
                                         <div class="col-lg-8" style="padding-right: 0px;">
