@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Link Video / Audio <span class="text-danger">*</span></label>
-                                <input type="text" name="konten" class="form-control" required value="<?= isset($data) ? $data->konten : '' ?>" />
+                                <textarea name="konten" class="form-control" required><?= isset($data) ? $data->konten : '' ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Bait Mantram <span class="text-danger">*</span></label>
