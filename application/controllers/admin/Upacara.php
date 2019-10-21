@@ -101,6 +101,14 @@ class Upacara extends CI_Controller
                 $tari = $this->tari->where('id_tari', $detail->id_item)->first();
                 if ($tari !== null) {
                     $tari->deletable = false;
+
+                    foreach ($data->tari as $dtIndex => $dt) {
+                        if ($dt->id_tari === $tari->id_tari) {
+                            unset($data->tari[$dtIndex]);
+                            continue;
+                        }
+                    }
+
                     $data->tari[] = $tari;
                 }
             }
@@ -109,6 +117,14 @@ class Upacara extends CI_Controller
                 $gamelan = $this->gamelan->where('id_gamelan', $detail->id_item)->first();
                 if ($gamelan !== null) {
                     $gamelan->deletable = false;
+
+                    foreach ($data->gamelan as $dtIndex => $dt) {
+                        if ($dt->id_gamelan === $gamelan->id_gamelan) {
+                            unset($data->gamelan[$dtIndex]);
+                            continue;
+                        }
+                    }
+
                     $data->gamelan[] = $gamelan;
                 }
             }
@@ -117,6 +133,14 @@ class Upacara extends CI_Controller
                 $kidung = $this->kidung->where('id_kidung', $detail->id_item)->first();
                 if ($kidung !== null) {
                     $kidung->deletable = false;
+
+                    foreach ($data->kidung as $dtIndex => $dt) {
+                        if ($dt->id_kidung === $kidung->id_kidung) {
+                            unset($data->kidung[$dtIndex]);
+                            continue;
+                        }
+                    }
+
                     $data->kidung[] = $kidung;
                 }
             }
