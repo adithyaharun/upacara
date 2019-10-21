@@ -39,7 +39,6 @@
                         <?php foreach ($upacara as $s) : ?>
                             <div class="swiper-slide">
                                 <div class="card text-center">
-                                    <img src="<?= $s->gambar ?>" class="card-img-top" alt="<?= $s->nama_upacara ?>" />
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="<?= base_url('upacara/show/' . $s->id_upacara) ?>" class="stretched-link"><?= $s->nama_upacara ?></a></h5>
                                     </div>
@@ -63,7 +62,6 @@
                         <?php foreach ($prosesi as $p) : ?>
                             <div class="swiper-slide">
                                 <div class="card text-center">
-                                    <img src="<?= $p->gambar ?>" class="card-img-top" alt="<?= $p->prosesi_upacara ?>" />
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="<?= base_url('prosesi/show/' . $p->id_prosesi_upacara) ?>" class="stretched-link"><?= $p->prosesi_upacara ?></a></h5>
                                     </div>
