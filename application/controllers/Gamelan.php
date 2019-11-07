@@ -11,10 +11,23 @@ class Gamelan extends CI_Controller
 
     public function index()
     {
-        $values = [];
-        $values['data'] = $this->gamelan->get();
+        $query = $this->gamelan;
+        $total = $query->count();
 
-        $this->load->view('gamelan/index', $values);
+        $query->limit(2)
+            ->offset((($this->input->get('page') ?: 1) - 1) * 2);
+
+        $data = $query->get();
+
+        $this->pagination->initialize([
+            'total_rows' => $total,
+            'per_page' => 2,
+        ]);
+
+        $this->load->view('gamelan/index', [
+            'data' => $data,
+            'pagination' => $this->pagination->create_links()
+        ]);
     }
 
     public function show($id)

@@ -21,6 +21,9 @@
                 </div>
             </div>
         <?php endforeach; ?>
+        <div class="text-center">
+            <?= $pagination; ?>
+        </div>
     </div>
     <?php $this->load->view('layouts/footer'); ?>
 </body>
