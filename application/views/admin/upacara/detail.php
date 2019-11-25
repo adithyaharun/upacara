@@ -2,6 +2,14 @@
 <html>
 <?php $this->load->view('admin/layouts/head', ['title' => $data->nama_upacara]); ?>
 <link href="<?php echo base_url(); ?>assets/select2/select2.min.css" rel="stylesheet" />
+<style>
+    .prosesi-title {
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+        text-overflow: ellipsis;
+    }
+</style>
 <body>
     <?php $this->load->view('admin/layouts/navigation'); ?>
     <?php $this->load->view('admin/layouts/sidebar'); ?>
@@ -81,7 +89,7 @@
                                 <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
-                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <p class="prosesi-title"><?= $prosesi->prosesi_upacara ?></p>
                                         <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
                                         <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                     </div>
@@ -108,7 +116,7 @@
                                 <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
-                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <p class="prosesi-title"><?= $prosesi->prosesi_upacara ?></p>
                                         <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
                                         <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                     </div>
@@ -135,7 +143,7 @@
                                 <div class="panel panel-default" style="border: 1px solid #efeef4; margin-bottom: 1em">
                                     <img src="<?= $prosesi->gambar ? base_url('/uploads/' . $prosesi->gambar) : base_url('/assets/images/placeholder.png') ?>" width="100%" />
                                     <div class="panel-body">
-                                        <p><?= $prosesi->prosesi_upacara ?></p>
+                                        <p class="prosesi-title"><?= $prosesi->prosesi_upacara ?></p>
                                         <a href="<?= base_url('admin/prosesi/detail/' . $prosesi->id_prosesi_upacara) ?>" class="btn btn-primary btn-sm">Lihat</a>
                                         <a href="#" class="btn btn-danger btn-delete btn-sm" data-id="<?= $prosesi->id_detail ?>">Hapus</a>
                                     </div>
