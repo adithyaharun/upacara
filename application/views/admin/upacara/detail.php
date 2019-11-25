@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php $this->load->view('admin/layouts/head', ['title' => $data->nama_upacara]); ?>
-
+<link href="<?php echo base_url(); ?>assets/select2/select2.min.css" rel="stylesheet" />
 <body>
     <?php $this->load->view('admin/layouts/navigation'); ?>
     <?php $this->load->view('admin/layouts/sidebar'); ?>
@@ -212,6 +212,7 @@
         </div>
     </div> <!-- Footer -->
     <?php $this->load->view('admin/layouts/footer'); ?>
+    <script src="<?php echo base_url(); ?>assets/select2/select2.min.js"></script>
     <script>
         let $detailModal = $("#detail-modal");
         let id_yadnya = "<?= $data->id_yadnya ?>";
@@ -256,6 +257,11 @@
             if (confirm('Apakah anda yakin ingin menghapus item ini?')) {
                 window.location.href = `${baseUrl}admin/upacara/delete_detail/${id}`;
             }
+        });
+
+        $('[name="detail"]').select2({
+            width: "100%",
+            dropdownParent: $detailModal
         });
     </script>
 </body>

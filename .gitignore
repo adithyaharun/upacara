@@ -1,3 +1,4 @@
 /uploads
 /.vscode
+/.idea
 application/config/database.php
