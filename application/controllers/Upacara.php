@@ -65,6 +65,8 @@ class Upacara extends CI_Controller
                 'tb_upacara_detail.id_upacara' => $id,
                 'type' => 'prosesi'
             ])
+            ->orderBy('id_upacara', 'ASC')
+            ->orderBy('position', 'ASC')
             ->get();
         $data->tari = $this->upacara_detail->select('tb_tari.*')
             ->join('tb_tari', 'tb_upacara_detail.id_item', '=', 'tb_tari.id_tari')
