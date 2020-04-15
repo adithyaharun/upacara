@@ -195,7 +195,8 @@ class MY_Model extends CI_Model
         return $this->db->count_all($this->table);
     }
 
-    public function orderBy($column, $direction) {
+    public function orderBy($column, $direction)
+    {
         $this->db->order_by($column, $direction);
 
         return $this;

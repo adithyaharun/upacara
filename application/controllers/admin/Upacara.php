@@ -234,10 +234,47 @@ class Upacara extends CI_Controller
             $this->session->set_flashdata('error', ucwords($this->input->post('type')) . " tersebut sudah ada dalam upacara ini.");
             redirect(base_url('admin/upacara/show/' . $id));
         }
+
+        $idItem = $this->input->post('detail');
+
+        if ($this->input->post('type') === 'prosesi') {
+            $prosesi = $this->prosesi
+                ->where('id_prosesi_upacara', $id)
+                ->first();
+            $prosesiDetail = $this->prosesi_detail
+                ->where([
+                    'tb_prosesi_detail.id_prosesi' => $id,
+                    'type' => 'prosesi'
+                ])
+                ->get();
+                
+            $p = $this->prosesi->create([
+                'prosesi_upacara' => $prosesi->prosesi_upacara,
+                'deskripsi' => $prosesi->deskripsi,
+                'id_yadnya' => $prosesi->id_yadnya == 0 ? null : $prosesi->id_yadnya,
+                'id_tari' => $prosesi->id_tari,
+                'id_gamelan' => $prosesi->id_gamelan,
+                'id_kidung' => $prosesi->id_kidung,
+                'id_mantram' => $prosesi->id_mantram,
+                'gambar' => $prosesi->gambar,
+                'special' => 1
+            ]);
+
+            foreach ($prosesiDetail as $key => $detail) {
+                $this->prosesi_detail->create([
+                    'type' => $detail->type,
+                    'id_item' => $detail->detail,
+                    'kategori' => $detail->kategori,
+                    'id_prosesi' => $p->id,
+                ]);
+            }
+
+            $idItem = $p->id;
+        }
         
         $this->upacara_detail->create([
             'type' => $this->input->post('type'),
-            'id_item' => $this->input->post('detail'),
+            'id_item' => $idItem,
             'kategori' => $this->input->post('kategori'),
             'id_upacara' => $id,
         ]);
