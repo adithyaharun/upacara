@@ -260,16 +260,16 @@ class Upacara extends CI_Controller
                 'special' => 1
             ]);
 
+            $idItem = $p->id_prosesi_upacara;
+
             foreach ($prosesiDetail as $key => $detail) {
                 $this->prosesi_detail->create([
                     'type' => $detail->type,
                     'id_item' => $detail->detail,
                     'kategori' => $detail->kategori,
-                    'id_prosesi' => $p->id,
+                    'id_prosesi' => $p->id_prosesi_upacara,
                 ]);
             }
-
-            $idItem = $p->id;
         }
         
         $this->upacara_detail->create([
