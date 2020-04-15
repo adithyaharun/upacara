@@ -239,11 +239,11 @@ class Upacara extends CI_Controller
 
         if ($this->input->post('type') === 'prosesi') {
             $prosesi = $this->prosesi
-                ->where('id_prosesi_upacara', $id)
+                ->where('id_prosesi_upacara', $idItem)
                 ->first();
             $prosesiDetail = $this->prosesi_detail
                 ->where([
-                    'tb_prosesi_detail.id_prosesi' => $id,
+                    'tb_prosesi_detail.id_prosesi' => $idItem,
                     'type' => 'prosesi'
                 ])
                 ->get();
